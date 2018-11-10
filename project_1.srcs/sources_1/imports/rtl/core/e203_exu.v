@@ -332,6 +332,7 @@ module e203_exu(
   
   // Lab1.2 Codes Here
   wire [`E203_XLEN-1:0] alu_wbck_o_wdat;
+  wire [`E203_RFIDX_WIDTH-1:0] alu_wbck_o_rdidx;
 
   e203_exu_disp u_e203_exu_disp(
     .wfi_halt_exu_req    (wfi_halt_exu_req),
@@ -404,8 +405,10 @@ module e203_exu(
     .rst_n               (rst_n),
     
     // Lab1.2 Codes Here
-    .bypass_from_alu     (alu_wbck_o_wdat),
-    .bypass_from_lsu     (lsu_o_wbck_wdat)
+    .bypass_from_alu       (alu_wbck_o_wdat),
+    .bypass_from_alu_rdidx (alu_wbck_o_rdidx),
+    .bypass_from_lsu       (lsu_o_wbck_wdat)
+    // .bypass_from_lsu_rdidx ()
   );
 
   //////////////////////////////////////////////////////////////
@@ -461,7 +464,7 @@ module e203_exu(
   wire alu_wbck_o_valid;
   wire alu_wbck_o_ready;
   // wire [`E203_XLEN-1:0] alu_wbck_o_wdat;
-  wire [`E203_RFIDX_WIDTH-1:0] alu_wbck_o_rdidx;
+  // wire [`E203_RFIDX_WIDTH-1:0] alu_wbck_o_rdidx;
 
   wire alu_cmt_valid;
   wire alu_cmt_ready;
@@ -614,8 +617,10 @@ module e203_exu(
     .rst_n               (rst_n        ),
     
     // Lab1.2 Codes Here
-    .bypass_from_alu     (alu_wbck_o_wdat),
-    .bypass_from_lsu     (lsu_o_wbck_wdat)
+    .bypass_from_alu       (alu_wbck_o_wdat),
+    .bypass_from_alu_rdidx (alu_wbck_o_rdidx),
+    .bypass_from_lsu       (lsu_o_wbck_wdat)
+    // .bypass_from_lsu_rdidx ()
   );
 
   //////////////////////////////////////////////////////////////
