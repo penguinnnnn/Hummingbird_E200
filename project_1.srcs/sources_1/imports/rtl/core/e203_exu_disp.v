@@ -112,7 +112,11 @@ module e203_exu_disp(
 
   
   input  clk,
-  input  rst_n
+  input  rst_n,
+  
+  // Lab1.2 Codes Here
+  input [31:0]                   bypass_from_alu,
+  input [31:0]                   bypass_from_lsu
   );
 
 
