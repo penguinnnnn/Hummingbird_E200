@@ -243,6 +243,8 @@ module e203_exu_disp(
 											: disp_i_rs1 & {`E203_XLEN{~disp_i_rs1x0}};
   wire [`E203_XLEN-1:0] disp_i_rs2_msked = (bypass_from_alu_rdidx == disp_i_rs2idx) ? bypass_from_alu 
 											: disp_i_rs2 & {`E203_XLEN{~disp_i_rs2x0}};
+  //lab1.2 end
+  
     // Since we always dispatch any instructions into ALU, so we dont need to gate ops here
   //assign disp_o_alu_rs1   = {`E203_XLEN{disp_alu}} & disp_i_rs1_msked;
   //assign disp_o_alu_rs2   = {`E203_XLEN{disp_alu}} & disp_i_rs2_msked;
