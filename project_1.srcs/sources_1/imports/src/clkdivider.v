@@ -17,7 +17,8 @@ module clkdivider
     end
 //  Bob: this original source code is wrong, because it is actually divided clock by 512, so correct it
     //else if (counter == 8'hff)
-    else if (counter == 8'h7f)
+    // Lab 1.2 Codes Here
+    else if (counter == 8'h70)
     begin
       counter <= 8'd0;
       clk_out <= ~clk_out;

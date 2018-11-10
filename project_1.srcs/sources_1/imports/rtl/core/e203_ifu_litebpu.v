@@ -65,7 +65,10 @@ module e203_ifu_litebpu(
   input  [`E203_XLEN-1:0] rf2bpu_rs1,
 
   input  clk,
-  input  rst_n
+  input  rst_n,
+  
+  // Lab1.2 Codes Here
+  input last_taken
   );
 
 
@@ -89,7 +92,29 @@ module e203_ifu_litebpu(
   //          is calculated based on current PC value and offset
 
   // The JAL and JALR is always jump, bxxx backward is predicted as taken  
-  assign prdt_taken   = (dec_jal | dec_jalr | (dec_bxx & dec_bjp_imm[`E203_XLEN-1]));  
+  // assign prdt_taken   = (dec_jal | dec_jalr | (dec_bxx & dec_bjp_imm[`E203_XLEN-1]));
+  //
+  // Implementation of branch prediction
+  // Lab1.2 Codes Here
+  reg [1:0]state;
+  always@(posedge clk)
+  begin
+    if (dec_bxx)
+    begin
+        case (state)
+            0:  if (last_taken) state = 1;
+                else state = 0;
+            1:  if (last_taken) state = 2;
+                else state = 0;
+            2:  if (last_taken) state = 3;
+                else state = 1;
+            3:  if (last_taken) state = 3;
+                else state = 2;
+        endcase
+    end
+  end
+  assign prdt_taken   = (dec_jal | dec_jalr | (dec_bxx & (state == 2 || state ==3)));
+    
   // The JALR with rs1 == x1 have dependency or xN have dependency
   wire dec_jalr_rs1x0 = (dec_jalr_rs1idx == `E203_RFIDX_WIDTH'd0);
   wire dec_jalr_rs1x1 = (dec_jalr_rs1idx == `E203_RFIDX_WIDTH'd1);

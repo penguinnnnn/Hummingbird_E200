@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
 # Vivado v2018.1 (64-bit)
-# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# SW Build 2188600 on Wed Apr  4 18:39:19 MDT 2018
 # IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
-# Start of session at: Thu Jul 26 13:59:09 2018
-# Process ID: 2064
-# Current directory: C:/Users/DELL/Desktop/35T/project/project_1.runs/synth_1
-# Command line: vivado.exe -log system.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system.tcl
-# Log file: C:/Users/DELL/Desktop/35T/project/project_1.runs/synth_1/system.vds
-# Journal file: C:/Users/DELL/Desktop/35T/project/project_1.runs/synth_1\vivado.jou
+# Start of session at: Sat Nov 10 01:51:29 2018
+# Process ID: 504
+# Current directory: /home/nikihuang/Documents/lab/project1/project_1.runs/synth_1
+# Command line: vivado -log system.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system.tcl
+# Log file: /home/nikihuang/Documents/lab/project1/project_1.runs/synth_1/system.vds
+# Journal file: /home/nikihuang/Documents/lab/project1/project_1.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
 source system.tcl -notrace

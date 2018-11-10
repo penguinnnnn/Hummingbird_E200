@@ -344,6 +344,9 @@ module e203_core(
 
 
   wire itcm_nohold;
+  
+  // Lab1.2 Codes Here
+  wire alu_cmt_bjp_rslv_wire;
 
   e203_ifu u_e203_ifu(
     .inspect_pc   (inspect_pc),
@@ -418,7 +421,10 @@ module e203_core(
     .dec2ifu_remu           (dec2ifu_remu  ),
 
     .clk                    (clk_core_ifu  ),
-    .rst_n                  (rst_n         ) 
+    .rst_n                  (rst_n         ),
+    
+    // Lab1.2 Codes Here
+    .alu_cmt_bjp_rslv_i     (alu_cmt_bjp_rslv_wire)
   );
 
   
@@ -575,7 +581,10 @@ module e203_core(
 
     .clk_aon                (clk_aon),
     .clk                    (clk_core_exu),
-    .rst_n                  (rst_n  ) 
+    .rst_n                  (rst_n  ),
+    
+    // Lab1.2 Codes Here
+    .alu_cmt_bjp_rslv_o     (alu_cmt_bjp_rslv_wire)
   );
 
   wire                         lsu2biu_icb_cmd_valid;

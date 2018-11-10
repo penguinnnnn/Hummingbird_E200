@@ -185,7 +185,10 @@ module e203_exu(
   input  test_mode,
   input  clk_aon,
   input  clk,
-  input  rst_n
+  input  rst_n,
+  
+  // Lab1.2 Codes Here
+  output alu_cmt_bjp_rslv_o
   );
 
 
@@ -233,7 +236,6 @@ module e203_exu(
   wire dec_misalgn;
   wire dec_buserr;
   wire dec_ilegl;
-  wire dec_bxx;
 
 
   //////////////////////////////////////////////////////////////
@@ -252,7 +254,7 @@ module e203_exu(
     .dec_bjp   (),
     .dec_jal   (),
     .dec_jalr  (),
-    .dec_bxx   (dec_bxx),
+    .dec_bxx   (),
     .dec_jalr_rs1idx(),
     .dec_bjp_imm(),
 
@@ -665,23 +667,41 @@ module e203_exu(
     .clk                 (clk          ),
     .rst_n               (rst_n        ) 
   );
-
+  // Lab1.2 Codes Here
+  wire          alu_wbck_o_valid_q;
+  wire [31:0]   alu_wbck_o_wdat_q;
+  wire [4:0]    alu_wbck_o_rdidx_q;
+  wire          longp_wbck_o_valid_q;
+  wire [31:0]   longp_wbck_o_wdat_q;
+  wire [4:0]    longp_wbck_o_rdidx_q;
+  wire          longp_wbck_o_rdfpu_q;
+  wire [4:0]    longp_wbck_o_flags_q;
+  
+  sirv_gnrl_dfflr #(1)  alu_wbck_o_valid_dff(1, alu_wbck_o_valid, alu_wbck_o_valid_q, clk, rst_n);
+  sirv_gnrl_dfflr #(32) alu_wbck_o_wdat_dff(1, alu_wbck_o_wdat, alu_wbck_o_wdat_q, clk, rst_n);
+  sirv_gnrl_dfflr #(5)  alu_wbck_o_rdidx_dff(1, alu_wbck_o_rdidx, alu_wbck_o_rdidx_q, clk, rst_n);
+  sirv_gnrl_dfflr #(1)  longp_wbck_o_valid_dff(1, longp_wbck_o_valid, longp_wbck_o_valid_q, clk, rst_n);
+  sirv_gnrl_dfflr #(32) longp_wbck_o_wdat_dff(1, longp_wbck_o_wdat, longp_wbck_o_wdat_q, clk, rst_n);
+  sirv_gnrl_dfflr #(5)  longp_wbck_o_rdidx_dff(1, longp_wbck_o_rdidx, longp_wbck_o_rdidx_q, clk, rst_n);
+  sirv_gnrl_dfflr #(1)  longp_wbck_o_rdfpu_dff(1, longp_wbck_o_rdfpu, longp_wbck_o_rdfpu_q, clk, rst_n);
+  sirv_gnrl_dfflr #(5)  longp_wbck_o_flags_dff(1, longp_wbck_o_flags, longp_wbck_o_flags_q, clk, rst_n);
 
   //////////////////////////////////////////////////////////////
   // Instantiate the Final Write-Back
   e203_exu_wbck u_e203_exu_wbck(
 
-    .alu_wbck_i_valid   (alu_wbck_o_valid ), 
+    // Lab1.2 Codes Here
+    .alu_wbck_i_valid   (alu_wbck_o_valid_q ), 
     .alu_wbck_i_ready   (alu_wbck_o_ready ),
-    .alu_wbck_i_wdat    (alu_wbck_o_wdat  ),
-    .alu_wbck_i_rdidx   (alu_wbck_o_rdidx ),
+    .alu_wbck_i_wdat    (alu_wbck_o_wdat_q  ),
+    .alu_wbck_i_rdidx   (alu_wbck_o_rdidx_q ),
                          
-    .longp_wbck_i_valid (longp_wbck_o_valid ), 
+    .longp_wbck_i_valid (longp_wbck_o_valid_q ), 
     .longp_wbck_i_ready (longp_wbck_o_ready ),
-    .longp_wbck_i_wdat  (longp_wbck_o_wdat  ),
-    .longp_wbck_i_rdidx (longp_wbck_o_rdidx ),
-    .longp_wbck_i_rdfpu (longp_wbck_o_rdfpu ),
-    .longp_wbck_i_flags (longp_wbck_o_flags ),
+    .longp_wbck_i_wdat  (longp_wbck_o_wdat_q  ),
+    .longp_wbck_i_rdidx (longp_wbck_o_rdidx_q ),
+    .longp_wbck_i_rdfpu (longp_wbck_o_rdfpu_q ),
+    .longp_wbck_i_flags (longp_wbck_o_flags_q ),
 
     .rf_wbck_o_ena      (rf_wbck_ena    ),
     .rf_wbck_o_wdat     (rf_wbck_wdat   ),
@@ -907,6 +927,7 @@ module e203_exu(
   );
 
   assign exu_active = (~oitf_empty) | i_valid | excp_active;
+  assign alu_cmt_bjp_rslv_o = alu_cmt_bjp_rslv;
 
 
 endmodule                                      

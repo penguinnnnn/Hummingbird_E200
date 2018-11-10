@@ -60,19 +60,24 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  reset_param project.defaultXPMLibraries 
-  open_checkpoint C:/Users/DELL/Desktop/35T/project/project_1.runs/impl_1/system.dcp
-  set_property webtalk.parent_dir C:/Users/DELL/Desktop/35T/project/project_1.cache/wt [current_project]
-  set_property parent.project_path C:/Users/DELL/Desktop/35T/project/project_1.xpr [current_project]
-  set_property ip_output_repo C:/Users/DELL/Desktop/35T/project/project_1.cache/ip [current_project]
+  create_project -in_memory -part xc7a35tftg256-1
+  set_property design_mode GateLvl [current_fileset]
+  set_param project.singleFileAddWarning.threshold 0
+  set_property webtalk.parent_dir /home/nikihuang/Documents/lab/project1/project_1.cache/wt [current_project]
+  set_property parent.project_path /home/nikihuang/Documents/lab/project1/project_1.xpr [current_project]
+  set_property ip_output_repo /home/nikihuang/Documents/lab/project1/project_1.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
+  add_files -quiet /home/nikihuang/Documents/lab/project1/project_1.runs/synth_1/system.dcp
+  read_ip -quiet /home/nikihuang/Documents/lab/project1/project_1.srcs/sources_1/ip/reset_sys_1/reset_sys.xci
+  read_ip -quiet /home/nikihuang/Documents/lab/project1/project_1.srcs/sources_1/ip/mmcm_1/mmcm.xci
+  read_xdc /home/nikihuang/Documents/lab/project1/project_1.srcs/constrs_1/new/e203_0408.xdc
+  link_design -top system -part xc7a35tftg256-1
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {
@@ -144,25 +149,6 @@ if {$rc} {
   return -code error $RESULT
 } else {
   end_step route_design
-  unset ACTIVE_STEP 
-}
-
-start_step write_bitstream
-set ACTIVE_STEP write_bitstream
-set rc [catch {
-  create_msg_db write_bitstream.pb
-  set_property XPM_LIBRARIES XPM_CDC [current_project]
-  catch { write_mem_info -force system.mmi }
-  write_bitstream -force system.bit 
-  catch {write_debug_probes -quiet -force system}
-  catch {file copy -force system.ltx debug_nets.ltx}
-  close_msg_db -file write_bitstream.pb
-} RESULT]
-if {$rc} {
-  step_failed write_bitstream
-  return -code error $RESULT
-} else {
-  end_step write_bitstream
   unset ACTIVE_STEP 
 }
 
