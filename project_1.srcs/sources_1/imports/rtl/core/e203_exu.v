@@ -334,6 +334,31 @@ module e203_exu(
   wire [`E203_XLEN-1:0] alu_wbck_o_wdat;
   wire [`E203_RFIDX_WIDTH-1:0] alu_wbck_o_rdidx;
 
+  wire          alu_wbck_o_valid_q;
+  wire [31:0]   alu_wbck_o_wdat_q;
+  wire [4:0]    alu_wbck_o_rdidx_q;
+  wire          longp_wbck_o_valid_q;
+  wire [31:0]   longp_wbck_o_wdat_q;
+  wire [4:0]    longp_wbck_o_rdidx_q;
+  wire          longp_wbck_o_rdfpu_q;
+  wire [4:0]    longp_wbck_o_flags_q;
+  wire alu_wbck_o_valid;
+  wire longp_wbck_o_valid;
+  wire longp_wbck_o_ready;
+  wire [`E203_FLEN-1:0] longp_wbck_o_wdat;
+  wire [`E203_RFIDX_WIDTH-1:0] longp_wbck_o_rdidx;
+  wire longp_wbck_o_rdfpu;
+  wire [4:0] longp_wbck_o_flags;
+  
+  sirv_gnrl_dfflr #(1)  alu_wbck_o_valid_dff(1, alu_wbck_o_valid, alu_wbck_o_valid_q, clk, rst_n);
+  sirv_gnrl_dfflr #(32) alu_wbck_o_wdat_dff(1, alu_wbck_o_wdat, alu_wbck_o_wdat_q, clk, rst_n);
+  sirv_gnrl_dfflr #(5)  alu_wbck_o_rdidx_dff(1, alu_wbck_o_rdidx, alu_wbck_o_rdidx_q, clk, rst_n);
+  sirv_gnrl_dfflr #(1)  longp_wbck_o_valid_dff(1, longp_wbck_o_valid, longp_wbck_o_valid_q, clk, rst_n);
+  sirv_gnrl_dfflr #(32) longp_wbck_o_wdat_dff(1, longp_wbck_o_wdat, longp_wbck_o_wdat_q, clk, rst_n);
+  sirv_gnrl_dfflr #(5)  longp_wbck_o_rdidx_dff(1, longp_wbck_o_rdidx, longp_wbck_o_rdidx_q, clk, rst_n);
+  sirv_gnrl_dfflr #(1)  longp_wbck_o_rdfpu_dff(1, longp_wbck_o_rdfpu, longp_wbck_o_rdfpu_q, clk, rst_n);
+  sirv_gnrl_dfflr #(5)  longp_wbck_o_flags_dff(1, longp_wbck_o_flags, longp_wbck_o_flags_q, clk, rst_n);
+
   e203_exu_disp u_e203_exu_disp(
     .wfi_halt_exu_req    (wfi_halt_exu_req),
     .wfi_halt_exu_ack    (wfi_halt_exu_ack),
@@ -405,9 +430,9 @@ module e203_exu(
     .rst_n               (rst_n),
     
     // Lab1.2 Codes Here
-    .bypass_from_alu       (alu_wbck_o_wdat),
-    .bypass_from_alu_rdidx (alu_wbck_o_rdidx),
-    .bypass_from_lsu       (lsu_o_wbck_wdat)
+    .bypass_from_alu       (alu_wbck_o_wdat_q),
+    .bypass_from_alu_rdidx (alu_wbck_o_rdidx_q)
+    //.bypass_from_lsu       (lsu_o_wbck_wdat)
     // .bypass_from_lsu_rdidx ()
   );
 
@@ -461,7 +486,7 @@ module e203_exu(
 
   //////////////////////////////////////////////////////////////
   // Instantiate the ALU
-  wire alu_wbck_o_valid;
+  
   wire alu_wbck_o_ready;
   // wire [`E203_XLEN-1:0] alu_wbck_o_wdat;
   // wire [`E203_RFIDX_WIDTH-1:0] alu_wbck_o_rdidx;
@@ -614,23 +639,18 @@ module e203_exu(
     .mdv_nob2b         (mdv_nob2b),
 
     .clk                 (clk          ),
-    .rst_n               (rst_n        ),
+    .rst_n               (rst_n        )
     
     // Lab1.2 Codes Here
-    .bypass_from_alu       (alu_wbck_o_wdat),
-    .bypass_from_alu_rdidx (alu_wbck_o_rdidx),
-    .bypass_from_lsu       (lsu_o_wbck_wdat)
+    //.bypass_from_alu       (alu_wbck_o_wdat),
+    //.bypass_from_alu_rdidx (alu_wbck_o_rdidx),
+    //.bypass_from_lsu       (lsu_o_wbck_wdat)
     // .bypass_from_lsu_rdidx ()
   );
 
   //////////////////////////////////////////////////////////////
   // Instantiate the Long-pipe Write-Back
-  wire longp_wbck_o_valid;
-  wire longp_wbck_o_ready;
-  wire [`E203_FLEN-1:0] longp_wbck_o_wdat;
-  wire [`E203_RFIDX_WIDTH-1:0] longp_wbck_o_rdidx;
-  wire longp_wbck_o_rdfpu;
-  wire [4:0] longp_wbck_o_flags;
+
 
   wire longp_excp_o_ready;
   wire longp_excp_o_valid;
@@ -684,24 +704,7 @@ module e203_exu(
     .rst_n               (rst_n        ) 
   );
   // Lab1.2 Codes Here
-  wire          alu_wbck_o_valid_q;
-  wire [31:0]   alu_wbck_o_wdat_q;
-  wire [4:0]    alu_wbck_o_rdidx_q;
-  wire          longp_wbck_o_valid_q;
-  wire [31:0]   longp_wbck_o_wdat_q;
-  wire [4:0]    longp_wbck_o_rdidx_q;
-  wire          longp_wbck_o_rdfpu_q;
-  wire [4:0]    longp_wbck_o_flags_q;
   
-  sirv_gnrl_dfflr #(1)  alu_wbck_o_valid_dff(1, alu_wbck_o_valid, alu_wbck_o_valid_q, clk, rst_n);
-  sirv_gnrl_dfflr #(32) alu_wbck_o_wdat_dff(1, alu_wbck_o_wdat, alu_wbck_o_wdat_q, clk, rst_n);
-  sirv_gnrl_dfflr #(5)  alu_wbck_o_rdidx_dff(1, alu_wbck_o_rdidx, alu_wbck_o_rdidx_q, clk, rst_n);
-  sirv_gnrl_dfflr #(1)  longp_wbck_o_valid_dff(1, longp_wbck_o_valid, longp_wbck_o_valid_q, clk, rst_n);
-  sirv_gnrl_dfflr #(32) longp_wbck_o_wdat_dff(1, longp_wbck_o_wdat, longp_wbck_o_wdat_q, clk, rst_n);
-  sirv_gnrl_dfflr #(5)  longp_wbck_o_rdidx_dff(1, longp_wbck_o_rdidx, longp_wbck_o_rdidx_q, clk, rst_n);
-  sirv_gnrl_dfflr #(1)  longp_wbck_o_rdfpu_dff(1, longp_wbck_o_rdfpu, longp_wbck_o_rdfpu_q, clk, rst_n);
-  sirv_gnrl_dfflr #(5)  longp_wbck_o_flags_dff(1, longp_wbck_o_flags, longp_wbck_o_flags_q, clk, rst_n);
-
   //////////////////////////////////////////////////////////////
   // Instantiate the Final Write-Back
   e203_exu_wbck u_e203_exu_wbck(

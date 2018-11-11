@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tftg256-1" LaunchTime="1541862345">
-  <File Type="VDS-TIMING-PB" Name="system_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="system_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="system.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="system_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="system_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="system_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="system.vds"/>
-  <File Type="REPORTS-TCL" Name="system_reports.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tftg256-1" LaunchTime="1541944902">
   <File Type="PA-TCL" Name="system.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="system_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="system_reports.tcl"/>
+  <File Type="RDS-RDS" Name="system.vds"/>
+  <File Type="RDS-UTIL" Name="system_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="system_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="system.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="system_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="system_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/src/clkdivider.v">
@@ -20,18 +20,18 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/rtl/core/config.v">
-      <FileInfo SFType="VHeader">
-        <Attr Name="ImportPath" Val="$PPRDIR/../../fpga-data/e200_opensource-master/fine/rtl/core/config.v"/>
-        <Attr Name="ImportTime" Val="1523151754"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/rtl/core/e203_defines.v">
       <FileInfo SFType="VHeader">
         <Attr Name="ImportPath" Val="$PPRDIR/../../fpga-data/e200_opensource-master/fine/rtl/core/e203_defines.v"/>
         <Attr Name="ImportTime" Val="1523151757"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/rtl/core/config.v">
+      <FileInfo SFType="VHeader">
+        <Attr Name="ImportPath" Val="$PPRDIR/../../fpga-data/e200_opensource-master/fine/rtl/core/config.v"/>
+        <Attr Name="ImportTime" Val="1523151754"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -1319,6 +1319,6 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="mmcm"/>
   <BlockFileSet Type="BlockSrcs" Name="reset_sys"/>
+  <BlockFileSet Type="BlockSrcs" Name="mmcm"/>
 </GenRun>

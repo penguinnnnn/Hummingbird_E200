@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2018.1 (lin64) Build 2188600 Wed Apr  4 18:39:19 MDT 2018
-| Date             : Sat Nov 10 23:12:30 2018
-| Host             : nikihuang running 64-bit Ubuntu 18.04.1 LTS
+| Tool Version     : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
+| Date             : Sun Nov 11 22:12:30 2018
+| Host             : DESKTOP-FF2K42Q running 64-bit major release  (build 9200)
 | Command          : report_power -file system_power_routed.rpt -pb system_power_summary_routed.pb -rpx system_power_routed.rpx
 | Design           : system
 | Device           : xc7a35tftg256-1
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.197        |
+| Total On-Chip Power (W)  | 0.198        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.124        |
@@ -53,21 +53,21 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.003 |        6 |       --- |             --- |
-| Slice Logic              |    <0.001 |    18880 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     9376 |     20800 |           45.08 |
+| Slice Logic              |     0.001 |    18919 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |     9393 |     20800 |           45.16 |
 |   CARRY4                 |    <0.001 |      222 |      8150 |            2.72 |
-|   Register               |    <0.001 |     6732 |     41600 |           16.18 |
+|   Register               |    <0.001 |     6737 |     41600 |           16.19 |
 |   LUT as Distributed RAM |    <0.001 |       80 |      9600 |            0.83 |
-|   F7/F8 Muxes            |    <0.001 |      433 |     32600 |            1.33 |
+|   F7/F8 Muxes            |    <0.001 |      465 |     32600 |            1.43 |
 |   BUFG                   |    <0.001 |        2 |        32 |            6.25 |
 |   Others                 |     0.000 |      582 |       --- |             --- |
 |   LUT as Shift Register  |     0.000 |        2 |      9600 |            0.02 |
-| Signals                  |    <0.001 |    15270 |       --- |             --- |
+| Signals                  |    <0.001 |    15247 |       --- |             --- |
 | Block RAM                |     0.009 |       32 |        50 |           64.00 |
 | MMCM                     |     0.108 |        1 |         5 |           20.00 |
 | I/O                      |     0.002 |       57 |       170 |           33.53 |
 | Static Power             |     0.073 |          |           |                 |
-| Total                    |     0.197 |          |           |                 |
+| Total                    |     0.198 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -460,7 +460,7 @@ Table of Contents
 |                 dp_gt0.wptr_vec_0_dfflrs                             |    <0.001 |
 |           u_sirv_mrom_top                                            |    <0.001 |
 |             u_sirv_mrom                                              |    <0.001 |
-|         u_e203_subsys_perips                                         |     0.002 |
+|         u_e203_subsys_perips                                         |     0.003 |
 |           u_aon_icb_cdc_rx                                           |    <0.001 |
 |             buf_dat_dfflr                                            |    <0.001 |
 |             buf_vld_dfflr                                            |    <0.001 |

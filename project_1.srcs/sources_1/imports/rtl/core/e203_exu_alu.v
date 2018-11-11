@@ -157,12 +157,12 @@ module e203_exu_alu(
 
 
   input  clk,
-  input  rst_n,
+  input  rst_n
   
   // Lab1.2 Codes Here
-  input [31:0]                   bypass_from_alu,
-  input [4:0]                    bypass_from_alu_rdidx,
-  input [31:0]                   bypass_from_lsu
+  //input [31:0]                   bypass_from_alu,
+  //input [4:0]                    bypass_from_alu_rdidx,
+  //input [31:0]                   bypass_from_lsu
   // input [4:0]                    bypass_from_lsu_rdidx
   );
 

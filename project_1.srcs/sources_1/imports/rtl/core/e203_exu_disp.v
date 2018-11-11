@@ -116,8 +116,8 @@ module e203_exu_disp(
   
   // Lab1.2 Codes Here
   input [`E203_XLEN-1:0]                   bypass_from_alu,
-  input [`E203_RFIDX_WIDTH-1:0]                    bypass_from_alu_rdidx,
-  input [`E203_XLEN-1:0]                   bypass_from_lsu
+  input [`E203_RFIDX_WIDTH-1:0]                    bypass_from_alu_rdidx
+  //input [`E203_XLEN-1:0]                   bypass_from_lsu
   // input [4:0]                    bypass_from_lsu_rdidx
   );
 
@@ -239,10 +239,12 @@ module e203_exu_disp(
   assign disp_i_ready     = disp_condition & disp_i_ready_pos; 
 
   //lab1.2 begin
-  wire [`E203_XLEN-1:0] disp_i_rs1_msked = (bypass_from_alu_rdidx == disp_i_rs1idx) ? bypass_from_alu 
+  wire alu_rs1_rd = ( bypass_from_alu_rdidx == disp_i_rs1idx );
+  wire alu_rs2_rd = ( bypass_from_alu_rdidx == disp_i_rs2idx );
+  wire [`E203_XLEN-1:0] disp_i_rs1_msked = (alu_rs1_rd) ? bypass_from_alu 
 											: disp_i_rs1 & {`E203_XLEN{~disp_i_rs1x0}};
-  wire [`E203_XLEN-1:0] disp_i_rs2_msked = (bypass_from_alu_rdidx == disp_i_rs2idx) ? bypass_from_alu 
-											: disp_i_rs2 & {`E203_XLEN{~disp_i_rs2x0}};
+  wire [`E203_XLEN-1:0] disp_i_rs2_msked =  (alu_rs2_rd) ? bypass_from_alu
+											 : disp_i_rs2 & {`E203_XLEN{~disp_i_rs2x0}};
   //lab1.2 end
   
     // Since we always dispatch any instructions into ALU, so we dont need to gate ops here
