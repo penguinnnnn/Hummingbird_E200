@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
 # Vivado v2018.1 (64-bit)
-# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# SW Build 2188600 on Wed Apr  4 18:39:19 MDT 2018
 # IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
-# Start of session at: Sun Nov 11 22:01:44 2018
-# Process ID: 22176
-# Current directory: C:/Users/94928/Documents/GitHub/Hummingbird_E200/project_1.runs/synth_1
-# Command line: vivado.exe -log system.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system.tcl
-# Log file: C:/Users/94928/Documents/GitHub/Hummingbird_E200/project_1.runs/synth_1/system.vds
-# Journal file: C:/Users/94928/Documents/GitHub/Hummingbird_E200/project_1.runs/synth_1\vivado.jou
+# Start of session at: Sun Nov 18 16:10:33 2018
+# Process ID: 31776
+# Current directory: /home/nikihuang/Documents/lab/project1/project_1.runs/synth_1
+# Command line: vivado -log system.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source system.tcl
+# Log file: /home/nikihuang/Documents/lab/project1/project_1.runs/synth_1/system.vds
+# Journal file: /home/nikihuang/Documents/lab/project1/project_1.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
 source system.tcl -notrace

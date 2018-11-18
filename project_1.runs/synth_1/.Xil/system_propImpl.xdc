@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/94928/Documents/GitHub/Hummingbird_E200/project_1.srcs/constrs_1/new/e203_0408.xdc rfile:../../../project_1.srcs/constrs_1/new/e203_0408.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/nikihuang/Documents/lab/project1/project_1.srcs/constrs_1/new/e203_0408.xdc rfile:../../../project_1.srcs/constrs_1/new/e203_0408.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:182 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN P3 [get_ports {qspi_dq[3]}]
 set_property src_info {type:XDC file:1 line:183 export:INPUT save:INPUT read:READ} [current_design]
