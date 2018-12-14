@@ -1,0 +1,10 @@
+`define INPUT_H 7
+`define INPUT_W 7
+`define COORD_BIT 3
+`define INPUT_BIT 16*49
+`define KERNEL_BIT 16*9
+`define OUTPUT_BITWIDTH 16
+`define INPUT_PIXEL_BITWITH 16
+`define KERNEL_H 3
+`define KERNEL_W 3
+`define WINDOW_BIT 16*49
