@@ -90,9 +90,9 @@ module e203_exu_wbck(
   wire [`E203_RFIDX_WIDTH-1:0] wbck_i_rdidx;
   wire wbck_i_rdfpu;
 
-  //lab1.2 11.18
-  assign alu_wbck_i_ready   = 1'b1;
-  assign longp_wbck_i_ready = 1'b1;
+  //assign alu_wbck_i_ready   = wbck_ready4alu   & wbck_i_ready;
+  assign alu_wbck_i_ready = 1'b1;
+  assign longp_wbck_i_ready = wbck_ready4longp & wbck_i_ready;
 
   assign wbck_i_valid = wbck_sel_alu ? alu_wbck_i_valid : longp_wbck_i_valid;
   `ifdef E203_FLEN_IS_32//{

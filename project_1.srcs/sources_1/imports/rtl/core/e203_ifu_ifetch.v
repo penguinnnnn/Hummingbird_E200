@@ -110,10 +110,7 @@ module e203_ifu_ifetch(
   input  dec2ifu_remu  ,
 
   input  clk,
-  input  rst_n,
-  
-  // Lab1.2 Codes Here
-  input alu_cmt_bjp_rslv_i
+  input  rst_n
   );
 
   wire ifu_req_hsked  = (ifu_req_valid & ifu_req_ready) ;
@@ -436,10 +433,7 @@ module e203_ifu_ifetch(
     .rf2bpu_rs1               (rf2ifu_rs1   ),
 
     .clk                      (clk  ) ,
-    .rst_n                    (rst_n ) ,
-    
-    // Lab1.2 Codes Here
-    .last_taken               (alu_cmt_bjp_rslv_i)
+    .rst_n                    (rst_n )                 
   );
   // If the instruciton is 32bits length, increament 4, otherwise 2
   wire [2:0] pc_incr_ofst = minidec_rv32 ? 3'd4 : 3'd2;

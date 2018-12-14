@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4.1 (64-bit)
+# SW Build 2117270 on Tue Jan 30 15:32:00 MST 2018
+# IP Build 2095745 on Tue Jan 30 17:13:15 MST 2018
+# Start of session at: Sun Apr  8 15:32:27 2018
+# Process ID: 9264
+# Current directory: C:/Users/DELL/Desktop/fpga-data/e200_opensource-master/fine/rtl/project_1/project_1.runs/reset_sys_synth_1
+# Command line: vivado.exe -log reset_sys.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source reset_sys.tcl
+# Log file: C:/Users/DELL/Desktop/fpga-data/e200_opensource-master/fine/rtl/project_1/project_1.runs/reset_sys_synth_1/reset_sys.vds
+# Journal file: C:/Users/DELL/Desktop/fpga-data/e200_opensource-master/fine/rtl/project_1/project_1.runs/reset_sys_synth_1\vivado.jou
+#-----------------------------------------------------------
+source reset_sys.tcl -notrace

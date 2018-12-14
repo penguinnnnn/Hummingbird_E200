@@ -109,16 +109,14 @@ module e203_exu_disp(
   output [`E203_RFIDX_WIDTH-1:0] disp_oitf_rdidx ,
 
   output [`E203_PC_SIZE-1:0] disp_oitf_pc ,
-
+  //lab1.2 input
+  input wbck_i_ena ,
+  input [`E203_XLEN-1:0] wbck_i_wdat ,
+  input [`E203_RFIDX_WIDTH-1:0] wbck_i_rdidx ,
+  //end
   
   input  clk,
-  input  rst_n,
-  
-  // Lab1.2 Codes Here
-  input [`E203_XLEN-1:0]                   bypass_from_alu,
-  input [`E203_RFIDX_WIDTH-1:0]                    bypass_from_alu_rdidx
-  //input [`E203_XLEN-1:0]                   bypass_from_lsu
-  // input [4:0]                    bypass_from_lsu_rdidx
+  input  rst_n
   );
 
 
@@ -236,17 +234,13 @@ module e203_exu_disp(
                & (disp_alu_longp_prdt ? disp_oitf_ready : 1'b1);
 
   assign disp_i_valid_pos = disp_condition & disp_i_valid; 
-  assign disp_i_ready     = 1'b1; 
+  assign disp_i_ready     = disp_condition & disp_i_ready_pos; 
 
-  //lab1.2 begin
-  wire alu_rs1_rd = ( bypass_from_alu_rdidx == disp_i_rs1idx );
-  wire alu_rs2_rd = ( bypass_from_alu_rdidx == disp_i_rs2idx );
-  wire [`E203_XLEN-1:0] disp_i_rs1_msked = (alu_rs1_rd) ? bypass_from_alu 
-											: disp_i_rs1 & {`E203_XLEN{~disp_i_rs1x0}};
-  wire [`E203_XLEN-1:0] disp_i_rs2_msked =  (alu_rs2_rd) ? bypass_from_alu
-											 : disp_i_rs2 & {`E203_XLEN{~disp_i_rs2x0}};
-  //lab1.2 end
-  
+
+  wire [`E203_XLEN-1:0] disp_i_rs1_msked = (disp_i_rs1 == wbck_i_rdidx) ? wbck_i_wdat
+                                            : disp_i_rs1 & {`E203_XLEN{~disp_i_rs1x0}};
+  wire [`E203_XLEN-1:0] disp_i_rs2_msked = (disp_i_rs2 == wbck_i_rdidx) ? wbck_i_wdat
+                                            :disp_i_rs2 & {`E203_XLEN{~disp_i_rs2x0}};
     // Since we always dispatch any instructions into ALU, so we dont need to gate ops here
   //assign disp_o_alu_rs1   = {`E203_XLEN{disp_alu}} & disp_i_rs1_msked;
   //assign disp_o_alu_rs2   = {`E203_XLEN{disp_alu}} & disp_i_rs2_msked;
@@ -255,7 +249,7 @@ module e203_exu_disp(
   //assign disp_o_alu_info  = {`E203_DECINFO_WIDTH{disp_alu}} & disp_i_info;  
   assign disp_o_alu_rs1   = disp_i_rs1_msked;
   assign disp_o_alu_rs2   = disp_i_rs2_msked;
-  assign disp_o_alu_rdwen = disp_i_rdwen;
+  assign disp_o_alu_rdwen = disp_i_rdwen | wbck_i_ena;
   assign disp_o_alu_rdidx = disp_i_rdidx;
   assign disp_o_alu_info  = disp_i_info;  
   

@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../project_1.srcs/sources_1/imports/rtl/core" --include "../../../../project_1.srcs/sources_1/imports/rtl/perips" \
+"../../../../../../../../第七学期/计算机组织与系统结构实习/lab1.2/答疑/lab1.2仿真测试代码示例/fsm.v" \
+"../../../../../../../../第七学期/计算机组织与系统结构实习/lab1.2/答疑/lab1.2仿真测试代码示例/fsm_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

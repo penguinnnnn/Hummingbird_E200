@@ -158,12 +158,6 @@ module e203_exu_alu(
 
   input  clk,
   input  rst_n
-  
-  // Lab1.2 Codes Here
-  //input [31:0]                   bypass_from_alu,
-  //input [4:0]                    bypass_from_alu_rdidx,
-  //input [31:0]                   bypass_from_lsu
-  // input [4:0]                    bypass_from_lsu_rdidx
   );
 
 
@@ -204,7 +198,7 @@ module e203_exu_alu(
   wire csr_i_ready;
   wire ifu_excp_i_ready;
 
-  /*assign i_ready =   (agu_i_ready & agu_op)
+  assign i_ready =   (agu_i_ready & agu_op)
                    `ifdef E203_SUPPORT_SHARE_MULDIV //{
                    | (mdv_i_ready & mdv_op)
                    `endif//E203_SUPPORT_SHARE_MULDIV}
@@ -213,8 +207,7 @@ module e203_exu_alu(
                    | (bjp_i_ready & bjp_op)
                    | (csr_i_ready & csr_op)
                      ;
-*/
-assign i_ready = 1'b1;
+
   wire agu_i_longpipe;
 `ifdef E203_SUPPORT_SHARE_MULDIV //{
   wire mdv_i_longpipe;
@@ -774,8 +767,9 @@ assign i_ready = 1'b1;
          & (o_need_wbck ? wbck_o_ready : 1'b1); 
 
   assign wbck_o_valid = o_need_wbck & o_valid & (o_need_cmt  ? cmt_o_ready  : 1'b1);
-  assign cmt_o_valid  = o_need_cmt  & o_valid & (o_need_wbck ? wbck_o_ready : 1'b1);
-  // 
+  //assign cmt_o_valid  = o_need_cmt  & o_valid & (o_need_wbck ? wbck_o_ready : 1'b1);
+  assign cmt_o_valid = o_need_cmt & o_valid;
+  // lab1.2
   //  The commint interface have some special signals
   assign cmt_o_instr   = i_instr;  
   assign cmt_o_pc   = i_pc;  

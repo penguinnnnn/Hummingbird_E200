@@ -130,10 +130,7 @@ module e203_ifu(
   input  dec2ifu_remu  ,
 
   input  clk,
-  input  rst_n,
-  
-  // Lab1.2 Codes Here
-  input  alu_cmt_bjp_rslv_i
+  input  rst_n
   );
 
   
@@ -197,10 +194,7 @@ module e203_ifu(
     .dec2ifu_remu  (dec2ifu_remu  ),
 
     .clk           (clk          ),
-    .rst_n         (rst_n        ),
-    
-    // Lab1.2 Codes Here
-    .alu_cmt_bjp_rslv_i (alu_cmt_bjp_rslv_i)
+    .rst_n         (rst_n        ) 
   );
 
 
