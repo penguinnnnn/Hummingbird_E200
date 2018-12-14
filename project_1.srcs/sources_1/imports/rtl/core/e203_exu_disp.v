@@ -236,7 +236,7 @@ module e203_exu_disp(
                & (disp_alu_longp_prdt ? disp_oitf_ready : 1'b1);
 
   assign disp_i_valid_pos = disp_condition & disp_i_valid; 
-  assign disp_i_ready     = disp_condition & disp_i_ready_pos; 
+  assign disp_i_ready     = 1'b1; 
 
   //lab1.2 begin
   wire alu_rs1_rd = ( bypass_from_alu_rdidx == disp_i_rs1idx );

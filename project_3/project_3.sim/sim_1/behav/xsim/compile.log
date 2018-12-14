@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/第七学期/计算机组织与系统结构实习/lab1.2/答疑/lab1.2仿真测试代码示例/bpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bpu
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/第七学期/计算机组织与系统结构实习/lab1.2/答疑/lab1.2仿真测试代码示例/bpu_1_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module t

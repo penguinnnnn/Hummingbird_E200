@@ -204,7 +204,7 @@ module e203_exu_alu(
   wire csr_i_ready;
   wire ifu_excp_i_ready;
 
-  assign i_ready =   (agu_i_ready & agu_op)
+  /*assign i_ready =   (agu_i_ready & agu_op)
                    `ifdef E203_SUPPORT_SHARE_MULDIV //{
                    | (mdv_i_ready & mdv_op)
                    `endif//E203_SUPPORT_SHARE_MULDIV}
@@ -213,7 +213,8 @@ module e203_exu_alu(
                    | (bjp_i_ready & bjp_op)
                    | (csr_i_ready & csr_op)
                      ;
-
+*/
+assign i_ready = 1'b1;
   wire agu_i_longpipe;
 `ifdef E203_SUPPORT_SHARE_MULDIV //{
   wire mdv_i_longpipe;

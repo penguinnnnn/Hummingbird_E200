@@ -1,42 +1,20 @@
-Vivado Simulator 2017.4
-Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto c791423ef94145f2bff069b8ae028558 --incr --debug typical --relax --mt 2 -L lib_cdc_v1_0_2 -L proc_sys_reset_v5_0_12 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot e200_tb_behav xil_defaultlib.e200_tb xil_defaultlib.glbl -log elaborate.log 
+Vivado Simulator 2018.1
+Copyright 1986-1999, 2001-2017 Xilinx, Inc. All Rights Reserved.
+Running: D:/vivado/vivado/2018.1/bin/unwrapped/win64.o/xelab.exe -wto c791423ef94145f2bff069b8ae028558 --incr --debug typical --relax --mt 2 -L lib_cdc_v1_0_2 -L proc_sys_reset_v5_0_12 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port lden [C:/Users/94928/Documents/GitHub/Hummingbird_E200/project_1.srcs/sources_1/imports/rtl/core/e203_exu.v:353]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port lden [C:/Users/94928/Documents/GitHub/Hummingbird_E200/project_1.srcs/sources_1/imports/rtl/core/e203_exu.v:354]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port lden [C:/Users/94928/Documents/GitHub/Hummingbird_E200/project_1.srcs/sources_1/imports/rtl/core/e203_exu.v:355]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port lden [C:/Users/94928/Documents/GitHub/Hummingbird_E200/project_1.srcs/sources_1/imports/rtl/core/e203_exu.v:356]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port lden [C:/Users/94928/Documents/GitHub/Hummingbird_E200/project_1.srcs/sources_1/imports/rtl/core/e203_exu.v:357]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port lden [C:/Users/94928/Documents/GitHub/Hummingbird_E200/project_1.srcs/sources_1/imports/rtl/core/e203_exu.v:358]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port lden [C:/Users/94928/Documents/GitHub/Hummingbird_E200/project_1.srcs/sources_1/imports/rtl/core/e203_exu.v:359]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 1 for port lden [C:/Users/94928/Documents/GitHub/Hummingbird_E200/project_1.srcs/sources_1/imports/rtl/core/e203_exu.v:360]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.numeric_std
-Compiling package unisim.vcomponents
-Compiling package ieee.vital_timing
-Compiling package ieee.vital_primitives
-Compiling package unisim.vpkg
-Compiling package ieee.std_logic_arith
-Compiling package synopsys.attributes
-Compiling package ieee.std_logic_misc
-Compiling module unisims_ver.IBUF
-Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=16.0,...
-Compiling module unisims_ver.BUFG
-Compiling module xil_defaultlib.mmcm_clk_wiz
-Compiling module xil_defaultlib.mmcm
-Compiling module xil_defaultlib.clkdivider
-Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
-Compiling architecture fdre_v of entity unisim.FDRE [\FDRE(init='1')\]
-Compiling architecture fdr_v of entity unisim.FDR [fdr_default]
-Compiling architecture implementation of entity lib_cdc_v1_0_2.cdc_sync [\cdc_sync(c_vector_width=2,c_mtb...]
-Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(init="1111111111111111")...]
-Compiling architecture srl16_v of entity unisim.SRL16 [\SRL16(init="1111111111111111")(...]
-Compiling architecture imp of entity proc_sys_reset_v5_0_12.lpf [\lpf(c_ext_rst_width=4,c_aux_rst...]
-Compiling architecture imp of entity proc_sys_reset_v5_0_12.upcnt_n [\upcnt_n(c_size=6)\]
-Compiling architecture imp of entity proc_sys_reset_v5_0_12.sequence_psr [sequence_psr_default]
-Compiling architecture imp of entity proc_sys_reset_v5_0_12.proc_sys_reset [\proc_sys_reset(c_family="artix7...]
-Compiling architecture reset_sys_arch of entity xil_defaultlib.reset_sys [reset_sys_default]
-Compiling module unisims_ver.PULLUP
-Compiling module unisims_ver.IOBUF
 Compiling module xil_defaultlib.sirv_AsyncResetReg
 Compiling module xil_defaultlib.sirv_AsyncResetRegVec_129
 Compiling module xil_defaultlib.sirv_ResetCatchAndSync_2
@@ -262,7 +240,7 @@ Compiling module xil_defaultlib.sirv_aon_wrapper
 Compiling module xil_defaultlib.sirv_aon_top
 Compiling module xil_defaultlib.e203_subsys_top
 Compiling module xil_defaultlib.e203_soc_top
-Compiling module xil_defaultlib.system_default
-Compiling module xil_defaultlib.e200_tb
+Compiling module xil_defaultlib.tb_top
+WARNING: [XSIM 43-3373] "E:/第七学期/计算机组织与系统结构实习/lab1.2/答疑/tb_top.v" Line 246. System function $value$plusargs is used as system task. This system function should have a LHS e.g. x=$value$plusargs().
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot e200_tb_behav
+Built simulation snapshot tb_top_behav
