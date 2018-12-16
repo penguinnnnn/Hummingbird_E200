@@ -8,3 +8,6 @@
 `define KERNEL_H 3
 `define KERNEL_W 3
 `define WINDOW_BIT 16*49
+`define INSTR_WIDTH 32
+`define DATA_WIDTH 32
+`define DISP_ITAG_WIDTH 2
