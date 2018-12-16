@@ -33,18 +33,23 @@ module eai (
 
 	assign eai_icb_cmd_valid = eai_req_valid & eai_icb_cmd_ready;
 	
+	wire complete;
 	reg [7*7*16-1:0] x;
 	reg [3*3*16-1:0] kernel;
-	
+	reg [5*5*16-1:0] y;
 	//get addr from rs1 and rs2
 	reg [DATA_WIDTH-1:0] addr_x;
 	reg [DATA_WIDTH-1:0] addr_k;
-	
+	//reg [DATA_WIDTH-1:0] addr_y;
 	
 	initial 
 	begin
+		x = 7*7*16'b0;
+		kernel = 3*3*16'b0;
+		y = 5*5*16'b0;
 		addr_x = eai_req_rs1;//addr of x
 		addr_k = eai_req_rs2;//addr of kernel
+		//addr_y = 32'b0;
 	end
 	
 	
@@ -91,13 +96,15 @@ module eai (
 		
 	endgenerate
 	
+	assign complete = eai_icb_rsp_ready && eai_icb_cmd_valid;
+	
 	conv_op eai_core(
 	.i_valid(1'b1), 
-	.i_ready(1'b1),
+	.i_ready(complete),
 	.clk(clk),
-	.rst_n(), 
+	.rst_n(1'b0), 
 	.X(x), 
 	.kernel(kernel), 
-	.out(),
+	.out(y),
 	)
 	
