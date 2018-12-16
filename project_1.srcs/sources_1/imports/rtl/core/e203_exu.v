@@ -233,6 +233,12 @@ module e203_exu(
   wire dec_misalgn;
   wire dec_buserr;
   wire dec_ilegl;
+  
+  // Lab2-2 Code Here
+  wire dec_eai_bridge;
+  wire eai_need_rs1_bridge;
+  wire eai_need_rs2_bridge;
+  // End
 
 
   //////////////////////////////////////////////////////////////
@@ -262,8 +268,11 @@ module e203_exu(
     .dec_divu    (dec2ifu_divu  ),
     .dec_remu    (dec2ifu_remu  ),
 
-    
-
+    // Lab2-2 Code Here
+    .dec_eai      (dec_eai_bridge),
+    .eai_need_rs1 (eai_need_rs1_bridge),
+    .eai_need_rs2 (eai_need_rs2_bridge),
+    // End
 
     .dec_info  (dec_info ),
     .dec_rs1x0 (dec_rs1x0),
@@ -326,6 +335,17 @@ module e203_exu(
   wire wfi_halt_exu_ack;
 
   wire amo_wait;
+  
+  // Lab2-2 Code Here
+  wire disp_o_eai_valid_bridge;
+  wire disp_o_eai_ready_bridge;
+  
+  wire [`E203_XLEN-1:0] disp_o_eai_rs1_bridge;
+  wire [`E203_XLEN-1:0] disp_o_eai_rs2_bridge;
+  wire disp_o_eai_rdwen_bridge;
+  wire [`E203_RFIDX_WIDTH-1:0] disp_o_eai_rdidx_bridge;
+  wire [`E203_ITAG_WIDTH-1:0] disp_o_eai_itag_bridge;
+  // End
 
   e203_exu_disp u_e203_exu_disp(
     .wfi_halt_exu_req    (wfi_halt_exu_req),
@@ -369,6 +389,20 @@ module e203_exu(
     .disp_o_alu_misalgn  (disp_alu_misalgn    ),
     .disp_o_alu_buserr   (disp_alu_buserr     ),
     .disp_o_alu_ilegl    (disp_alu_ilegl      ),
+    
+    // Lab2-2 Code Here
+    .dec_eai                (dec_eai_bridge),
+    .eai_need_rs1           (eai_need_rs1_bridge),
+    .eai_need_rs2           (eai_need_rs2_bridge),
+    .disp_o_eai_valid       (disp_o_eai_valid_bridge), 
+    .disp_o_eai_ready       (disp_o_eai_ready_bridge),
+    
+    .disp_o_eai_rs1         (disp_o_eai_rs1_bridge),
+    .disp_o_eai_rs2         (disp_o_eai_rs2_bridge),
+    .disp_o_eai_rdwen       (disp_o_eai_rdwen_bridge),
+    .disp_o_eai_rdidx       (disp_o_eai_rdidx_bridge),
+    .disp_o_eai_itag        (disp_o_eai_itag_bridge),
+    // End
 
     .disp_oitf_ena       (disp_oitf_ena    ),
     .disp_oitf_ptr       (disp_oitf_ptr    ),

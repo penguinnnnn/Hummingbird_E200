@@ -81,6 +81,23 @@ module e203_exu_disp(
   output disp_o_alu_misalgn,
   output disp_o_alu_buserr ,
   output disp_o_alu_ilegl  ,
+  
+  // Lab2-2 Code Here
+  //////////////////////////////////////////////////////////////
+  // Dispatch to EAI
+  input dec_eai,
+  input eai_need_rs1,
+  input eai_need_rs2,
+  output disp_o_eai_valid, 
+  input  disp_o_eai_ready,
+  
+  output [`E203_XLEN-1:0] disp_o_eai_rs1,
+  output [`E203_XLEN-1:0] disp_o_eai_rs2,
+  output disp_o_eai_rdwen,
+  output [`E203_RFIDX_WIDTH-1:0] disp_o_eai_rdidx,
+  output [`E203_ITAG_WIDTH-1:0] disp_o_eai_itag,
+  // End
+  
 
   //////////////////////////////////////////////////////////////
   // Dispatch to OITF
