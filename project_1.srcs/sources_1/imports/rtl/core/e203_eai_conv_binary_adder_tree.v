@@ -1,4 +1,4 @@
-module binary_adder_tree(A,B,C,D,E,F,G,H,I,clk,out);
+module e203_eai_conv_binary_adder_tree(A,B,C,D,E,F,G,H,I,clk,out);
 	input [15:0]A,B,C,D,E,F,G,H,I;
 	input clk;
 	output [15:0] out;

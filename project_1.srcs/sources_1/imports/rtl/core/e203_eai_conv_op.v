@@ -1,6 +1,14 @@
 `include "define.v"
 
-module conv_op(input i_valid, output i_ready, input clk, input rst_n, input[`INPUT_BIT-1:0] X, input[`KERNEL_BIT-1:0] kernel, output[`OUTPUT_BITWIDTH-1:0] out);
+module e203_eai_conv_op(
+    input i_valid,
+    output i_ready, input clk,
+    input rst_n,
+    input[`INPUT_BIT-1:0] X,
+    input[`KERNEL_BIT-1:0] kernel,
+    output[`OUTPUT_BITWIDTH-1:0] out
+    );
+    
     reg [`COORD_BIT-1:0] x, y;
     reg complete;
     assign i_ready=complete;
@@ -36,7 +44,7 @@ module conv_op(input i_valid, output i_ready, input clk, input rst_n, input[`INP
     generate
     for (j = 0; j < `KERNEL_H; j = j + 1) begin : selector_height_loop
       for (i = 0; i < `KERNEL_W; i = i + 1) begin : selector_width_loop
-        value_selector selector_inst(
+        e203_eai_conv_value_selector u_e203_eai_conv_selector(
           .clk(clk),
           .X(X),
           .x(x + i),
@@ -57,5 +65,5 @@ module conv_op(input i_valid, output i_ready, input clk, input rst_n, input[`INP
     end // for n
     endgenerate
     
-    kernel3 PE(.x(window_out), .kernel(kernel), .out(out), .clk(clk));
+    e203_eai_conv_kernel3 u_e203_eai_conv_kernel3(.x(window_out), .kernel(kernel), .out(out), .clk(clk));
 endmodule

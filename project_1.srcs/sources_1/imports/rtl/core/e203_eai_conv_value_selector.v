@@ -1,6 +1,6 @@
 `include "define.v"
 
-module value_selector( // select value from X using (x, y) coordinate
+module e203_eai_conv_value_selector( // select value from X using (x, y) coordinate
   input clk,
   input [`INPUT_BIT-1:0] X,
   input [`COORD_BIT-1:0] x,

@@ -793,3 +793,22 @@
   `endif
 
   `define E203_HAS_CSR_EAI  1
+  
+  // Lab2-2 Code Here
+  `define INPUT_H 7
+  `define INPUT_W 7
+  `define COORD_BIT 3
+  `define INPUT_BIT 16*49
+  `define KERNEL_BIT 16*9
+  `define OUTPUT_BITWIDTH 16
+  `define INPUT_PIXEL_BITWITH 16
+  `define KERNEL_H 3
+  `define KERNEL_W 3
+  `define WINDOW_BIT 16*49
+  `define INSTR_WIDTH 32
+  `define DATA_WIDTH 32
+  `define DISP_ITAG_WIDTH 2
+  // End
+  
+  
+  

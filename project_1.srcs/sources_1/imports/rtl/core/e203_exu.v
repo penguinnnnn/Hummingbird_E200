@@ -170,14 +170,12 @@ module e203_exu(
   input                          agu_icb_rsp_excl_ok,
   input  [`E203_XLEN-1:0]        agu_icb_rsp_rdata,
 
-  `ifdef E203_HAS_CSR_EAI//{
   output         eai_csr_valid,
   input          eai_csr_ready,
   output  [31:0] eai_csr_addr,
   output         eai_csr_wr,
   output  [31:0] eai_csr_wdata,
   input   [31:0] eai_csr_rdata,
-  `endif//}
 
 
 
