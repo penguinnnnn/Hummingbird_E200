@@ -176,9 +176,18 @@ module e203_exu(
   output         eai_csr_wr,
   output  [31:0] eai_csr_wdata,
   input   [31:0] eai_csr_rdata,
-
-
-
+  
+  // Lab2-2 Code Here
+  input                          eai_req_valid,
+  output                         eai_req_ready,
+  input  [`INSTR_WIDTH-1:0]      eai_req_instr,
+  input  [`DATA_WIDTH-1:0]       eai_req_rs1,
+  input  [`DATA_WIDTH-1:0]       eai_req_rs2,
+  input  [`DISP_ITAG_WIDTH-1:0]  eai_req_itag,
+    
+  output [`DISP_ITAG_WIDTH-1:0]  eai_rsp_itag,
+  output                         eai_rsp_err,
+  // End
 
   input  test_mode,
   input  clk_aon,

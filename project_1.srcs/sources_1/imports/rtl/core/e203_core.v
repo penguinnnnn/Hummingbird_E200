@@ -456,15 +456,15 @@ module e203_core(
   wire excp_active;
   
   // Lab2-2 Code Here
-  wire eai_req_valid;
-  wire eai_req_ready;
-  wire eai_req_instr;
-  wire eai_req_rs1;
-  wire eai_req_rs2;
-  wire eai_req_itag;
+  wire                          eai_req_valid;
+  wire                          eai_req_ready;
+  wire [`INSTR_WIDTH-1:0]       eai_req_instr;
+  wire [`DATA_WIDTH-1:0]        eai_req_rs1;
+  wire [`DATA_WIDTH-1:0]        eai_req_rs2;
+  wire [`DISP_ITAG_WIDTH-1:0]   eai_req_itag;
   
-  wire eai_rsp_itag;
-  wire eai_rsp_err;
+  wire [`DISP_ITAG_WIDTH-1:0]   eai_rsp_itag;
+  wire                          eai_rsp_err;
   // End
 
   e203_exu u_e203_exu(
@@ -475,6 +475,18 @@ module e203_core(
     .eai_csr_wr    (eai_csr_wr   ),
     .eai_csr_wdata (eai_csr_wdata),
     .eai_csr_rdata (eai_csr_rdata),
+    
+    // Lab2-2 Code Here
+    .eai_req_valid(eai_req_valid),
+    .eai_req_ready(eai_req_ready),
+    .eai_req_instr(eai_req_instr),
+    .eai_req_rs1(eai_req_rs1),
+    .eai_req_rs2(eai_req_rs2),
+    .eai_req_itag(eai_req_itag),
+      
+    .eai_rsp_itag(eai_rsp_itag),
+    .eai_rsp_err(eai_rsp_err),
+    // End
 
 
     .excp_active            (excp_active),
