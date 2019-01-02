@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=D:/vivado/SDK/2018.1/bin;D:/vivado/vivado/2018.1/ids_lite/ISE/bin/nt64;D:/vivado/vivado/2018.1/ids_lite/ISE/lib/nt64:D:/vivado/vivado/2018.1/bin
+  PATH=D:/Xilinx2018/SDK/2018.1/bin;D:/Xilinx2018/Vivado/2018.1/ids_lite/ISE/bin/nt64;D:/Xilinx2018/Vivado/2018.1/ids_lite/ISE/lib/nt64:D:/Xilinx2018/Vivado/2018.1/bin
 else
-  PATH=D:/vivado/SDK/2018.1/bin;D:/vivado/vivado/2018.1/ids_lite/ISE/bin/nt64;D:/vivado/vivado/2018.1/ids_lite/ISE/lib/nt64:D:/vivado/vivado/2018.1/bin:$PATH
+  PATH=D:/Xilinx2018/SDK/2018.1/bin;D:/Xilinx2018/Vivado/2018.1/ids_lite/ISE/bin/nt64;D:/Xilinx2018/Vivado/2018.1/ids_lite/ISE/lib/nt64:D:/Xilinx2018/Vivado/2018.1/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.runs/synth_1'
+HD_PWD='C:/Users/DELL/Desktop/35T/project/project_1.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

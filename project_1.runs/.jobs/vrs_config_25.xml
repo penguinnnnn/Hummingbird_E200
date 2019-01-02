@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
 <Runs Version="1" Minor="0">
-	<Run Id="synth_1" LaunchDir="E:/第七学期/计算机组织与系统结构实习/体系实习2018_lab1.1/vivado_project_lab1.1_V2/35T/project/project_1.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="mmcm_synth_1" LaunchDir="D:/vivado/35T_lab3/project/project_1.runs/mmcm_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
 </Runs>
 

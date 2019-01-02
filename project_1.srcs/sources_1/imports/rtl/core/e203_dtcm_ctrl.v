@@ -90,10 +90,18 @@ module e203_dtcm_ctrl(
   output                         dtcm_ram_cs,  
   output                         dtcm_ram_we,  
   output [`E203_DTCM_RAM_AW-1:0] dtcm_ram_addr, 
-  output [`E203_DTCM_RAM_MW-1:0] dtcm_ram_wem,
+  output [`E203_DTCM_RAM_MW-1:0] dtcm_ram_wem, //write mask
   output [`E203_DTCM_RAM_DW-1:0] dtcm_ram_din,          
   input  [`E203_DTCM_RAM_DW-1:0] dtcm_ram_dout,
   output                         clk_dtcm_ram,
+  
+//  output ddr_cs,
+//  output ddr_we,
+//  output [`E203_DTCM_RAM_AW-1:0] ddr_addr,
+//  output [`E203_DTCM_RAM_MW-1:0] ddr_wem,
+//  output [`E203_DTCM_RAM_DW-1:0] ddr_din,
+//  input [`E203_DTCM_RAM_DW-1:0] ddr_dout,
+//  output clk_ddr,
 
   input  test_mode,
   input  clk,
@@ -320,6 +328,13 @@ module e203_dtcm_ctrl(
      .ram_din  (dtcm_ram_din ),          
      .ram_dout (dtcm_ram_dout),
      .clk_ram  (clk_dtcm_ram ),
+//     .ram_cs   (ddr_cs  ),  
+//      .ram_we   (ddr_we  ),  
+//      .ram_addr (ddr_addr), 
+//      .ram_wem  (ddr_wem ),
+//      .ram_din  (ddr_din ),          
+//      .ram_dout (ddr_dout),
+//      .clk_ram  (clk_ddr ),
   
      .test_mode(test_mode  ),
      .clk  (clk  ),

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Thu Dec 20 10:24:59 2018
+# Process ID: 184220
+# Current directory: D:/vivado/35T_lab3/project/project_1.runs/axi_bram_ctrl_0_synth_1
+# Command line: vivado.exe -log axi_bram_ctrl_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source axi_bram_ctrl_0.tcl
+# Log file: D:/vivado/35T_lab3/project/project_1.runs/axi_bram_ctrl_0_synth_1/axi_bram_ctrl_0.vds
+# Journal file: D:/vivado/35T_lab3/project/project_1.runs/axi_bram_ctrl_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source axi_bram_ctrl_0.tcl -notrace

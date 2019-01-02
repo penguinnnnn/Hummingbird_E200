@@ -76,12 +76,6 @@ module e203_exu_decode(
   output dec_jal,
   output dec_jalr,
   output dec_bxx,
-  
-  // Lab2-2 Code Here
-  output dec_eai,
-  output eai_need_rs1,
-  output eai_need_rs2,
-  // End
 
   output [`E203_RFIDX_WIDTH-1:0] dec_jalr_rs1idx,
   output [`E203_XLEN-1:0] dec_bjp_imm 
@@ -231,12 +225,6 @@ module e203_exu_decode(
   wire rv32_op_32    = opcode_6_5_01 & opcode_4_2_110 & opcode_1_0_11; 
   wire rv32_custom2  = opcode_6_5_10 & opcode_4_2_110 & opcode_1_0_11; 
   wire rv32_custom3  = opcode_6_5_11 & opcode_4_2_110 & opcode_1_0_11; 
-  
-  // Lab2-2 Code Here
-  assign dec_eai = rv32_custom0 | rv32_custom1 | rv32_custom2 | rv32_custom3;
-  assign eai_need_rs1 = dec_eai & rv32_instr[13];
-  assign eai_need_rs2 = dec_eai & rv32_instr[12];
-  // End
 
   wire rv16_addi4spn     = opcode_1_0_00 & rv16_func3_000;//
   wire rv16_lw           = opcode_1_0_00 & rv16_func3_010;//

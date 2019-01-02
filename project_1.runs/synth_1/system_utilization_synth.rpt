@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date         : Sun Nov 18 14:23:14 2018
-| Host         : DESKTOP-FF2K42Q running 64-bit major release  (build 9200)
+| Date         : Thu Jul 26 14:07:20 2018
+| Host         : DESKTOP-6B5D8GA running 64-bit major release  (build 9200)
 | Command      : report_utilization -file system_utilization_synth.rpt -pb system_utilization_synth.pb
 | Design       : system
 | Device       : 7a35tftg256-1
@@ -30,16 +30,16 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 9490 |     0 |     20800 | 45.63 |
-|   LUT as Logic             | 9409 |     0 |     20800 | 45.24 |
+| Slice LUTs*                | 9407 |     0 |     20800 | 45.23 |
+|   LUT as Logic             | 9326 |     0 |     20800 | 44.84 |
 |   LUT as Memory            |   81 |     0 |      9600 |  0.84 |
 |     LUT as Distributed RAM |   80 |     0 |           |       |
 |     LUT as Shift Register  |    1 |     0 |           |       |
-| Slice Registers            | 6660 |     0 |     41600 | 16.01 |
-|   Register as Flip Flop    | 6660 |     0 |     41600 | 16.01 |
+| Slice Registers            | 6620 |     0 |     41600 | 15.91 |
+|   Register as Flip Flop    | 6620 |     0 |     41600 | 15.91 |
 |   Register as Latch        |    0 |     0 |     41600 |  0.00 |
 | F7 Muxes                   |  380 |     0 |     16300 |  2.33 |
-| F8 Muxes                   |   20 |     0 |      8150 |  0.25 |
+| F8 Muxes                   |   52 |     0 |      8150 |  0.64 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 296   |          Yes |           - |          Set |
-| 3782  |          Yes |           - |        Reset |
+| 3742  |          Yes |           - |        Reset |
 | 46    |          Yes |         Set |            - |
 | 2536  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -149,24 +149,24 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     | 4504 |                 LUT |
-| FDCE     | 3782 |        Flop & Latch |
-| LUT5     | 2541 |                 LUT |
+| LUT6     | 4420 |                 LUT |
+| FDCE     | 3742 |        Flop & Latch |
+| LUT5     | 2572 |                 LUT |
 | FDRE     | 2536 |        Flop & Latch |
-| LUT4     | 1502 |                 LUT |
-| LUT3     | 1384 |                 LUT |
-| LUT2     |  709 |                 LUT |
+| LUT4     | 1514 |                 LUT |
+| LUT3     | 1371 |                 LUT |
+| LUT2     |  716 |                 LUT |
 | MUXF7    |  380 |               MuxFx |
 | FDPE     |  296 |        Flop & Latch |
-| CARRY4   |  228 |          CarryLogic |
+| CARRY4   |  222 |          CarryLogic |
 | RAMD32   |  120 |  Distributed Memory |
-| LUT1     |   89 |                 LUT |
+| LUT1     |   87 |                 LUT |
+| MUXF8    |   52 |               MuxFx |
 | FDSE     |   46 |        Flop & Latch |
 | RAMS32   |   40 |  Distributed Memory |
 | IBUF     |   40 |                  IO |
 | OBUFT    |   38 |                  IO |
 | RAMB36E1 |   32 |        Block Memory |
-| MUXF8    |   20 |               MuxFx |
 | OBUF     |   16 |                  IO |
 | PULLUP   |    7 |                 I/O |
 | BUFG     |    2 |               Clock |

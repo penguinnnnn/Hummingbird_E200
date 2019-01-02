@@ -454,39 +454,17 @@ module e203_core(
   wire commit_mret;
   wire commit_trap;
   wire excp_active;
-  
-  // Lab2-2 Code Here
-  wire                          eai_req_valid;
-  wire                          eai_req_ready;
-  wire [`INSTR_WIDTH-1:0]       eai_req_instr;
-  wire [`DATA_WIDTH-1:0]        eai_req_rs1;
-  wire [`DATA_WIDTH-1:0]        eai_req_rs2;
-  wire [`DISP_ITAG_WIDTH-1:0]   eai_req_itag;
-  
-  wire [`DISP_ITAG_WIDTH-1:0]   eai_rsp_itag;
-  wire                          eai_rsp_err;
-  // End
 
   e203_exu u_e203_exu(
 
+  `ifdef E203_HAS_CSR_EAI//{
     .eai_csr_valid (eai_csr_valid),
     .eai_csr_ready (eai_csr_ready),
     .eai_csr_addr  (eai_csr_addr ),
     .eai_csr_wr    (eai_csr_wr   ),
     .eai_csr_wdata (eai_csr_wdata),
     .eai_csr_rdata (eai_csr_rdata),
-    
-    // Lab2-2 Code Here
-    .eai_req_valid(eai_req_valid),
-    .eai_req_ready(eai_req_ready),
-    .eai_req_instr(eai_req_instr),
-    .eai_req_rs1(eai_req_rs1),
-    .eai_req_rs2(eai_req_rs2),
-    .eai_req_itag(eai_req_itag),
-      
-    .eai_rsp_itag(eai_rsp_itag),
-    .eai_rsp_err(eai_rsp_err),
-    // End
+  `endif//}
 
 
     .excp_active            (excp_active),
@@ -615,25 +593,6 @@ module e203_core(
   wire                         lsu2biu_icb_rsp_err  ;
   wire                         lsu2biu_icb_rsp_excl_ok;
   wire [`E203_XLEN-1:0]        lsu2biu_icb_rsp_rdata;
-  
-  // Lab2-2 Code Here
-  wire                         eai_mem_holdup_bridge;
-  wire                         eai_icb_cmd_valid_bridge;
-  wire                         eai_icb_cmd_ready_bridge;
-  wire [`E203_ADDR_SIZE-1:0]   eai_icb_cmd_addr_bridge;
-  wire                         eai_icb_cmd_read_bridge;
-  wire [`E203_XLEN-1:0]        eai_icb_cmd_wdata_bridge;
-  wire [`E203_XLEN/8-1:0]      eai_icb_cmd_wmask_bridge;
-  wire                         eai_icb_cmd_lock_bridge;
-  wire                         eai_icb_cmd_excl_bridge;
-  wire [1:0]                   eai_icb_cmd_size_bridge;
-
-  wire                         eai_icb_rsp_valid_bridge;
-  wire                         eai_icb_rsp_ready_bridge;
-  wire                         eai_icb_rsp_err_bridge;
-  wire                         eai_icb_rsp_excl_ok_bridge;
-  wire [`E203_XLEN-1:0]        eai_icb_rsp_rdata_bridge;
-  // End
 
   e203_lsu u_e203_lsu(
     .excp_active         (excp_active),
@@ -728,64 +687,10 @@ module e203_core(
     .biu_icb_rsp_err    (lsu2biu_icb_rsp_err  ),
     .biu_icb_rsp_excl_ok(lsu2biu_icb_rsp_excl_ok),
     .biu_icb_rsp_rdata  (lsu2biu_icb_rsp_rdata),
-    
-    // Lab2-2 Code Here
-    .eai_mem_holdup        (eai_mem_holdup_bridge),
-    .eai_icb_cmd_valid     (eai_icb_cmd_valid_bridge),
-    .eai_icb_cmd_ready     (eai_icb_cmd_ready_bridge),
-    .eai_icb_cmd_addr      (eai_icb_cmd_addr_bridge),
-    .eai_icb_cmd_read      (eai_icb_cmd_read_bridge),
-    .eai_icb_cmd_wdata     (eai_icb_cmd_wdata_bridge),
-    .eai_icb_cmd_wmask     (eai_icb_cmd_wmask_bridge),
-    .eai_icb_cmd_lock      (eai_icb_cmd_lock_bridge),
-    .eai_icb_cmd_excl      (eai_icb_cmd_excl_bridge),
-    .eai_icb_cmd_size      (eai_icb_cmd_size_bridge),
-    
-    .eai_icb_rsp_valid     (eai_icb_rsp_valid_bridge),
-    .eai_icb_rsp_ready     (eai_icb_rsp_ready_bridge),
-    .eai_icb_rsp_err       (eai_icb_rsp_err_bridge),
-    .eai_icb_rsp_excl_ok   (eai_icb_rsp_excl_ok_bridge),
-    .eai_icb_rsp_rdata     (eai_icb_rsp_rdata_bridge),
-    // End
 
     .clk           (clk_core_lsu ),
     .rst_n         (rst_n        ) 
   );
-  
-  // Lab2-2 Code Here
-  e203_eai_conv u_e203_eai_conv(
-      
-    .eai_req_valid(eai_req_valid),
-    .eai_req_ready(eai_req_ready),
-    .eai_req_instr(eai_req_instr),
-    .eai_req_rs1(eai_req_rs1),
-    .eai_req_rs2(eai_req_rs2),
-    .eai_req_itag(eai_req_itag),
-    
-    .eai_rsp_valid(eai_csr_valid),
-    .eai_rsp_ready(eai_csr_ready),
-    .eai_rsp_wdat(eai_csr_wdata),
-    .eai_rsp_itag(eai_rsp_itag),
-    .eai_rsp_err(eai_rsp_err),
-      
-    .eai_icb_cmd_valid(eai_icb_cmd_valid_bridge),
-    .eai_icb_cmd_ready(eai_icb_cmd_ready_bridge),
-    .eai_icb_cmd_addr(eai_icb_cmd_addr_bridge),
-    .eai_icb_cmd_read(eai_icb_cmd_read_bridge),
-    .eai_icb_cmd_wdata(eai_icb_cmd_wdata_bridge),
-    .eai_icb_cmd_wmask(eai_icb_cmd_wmask_bridge),
-      
-    .eai_icb_rsp_valid(eai_icb_rsp_valid_bridge),
-    .eai_icb_rsp_ready(eai_icb_rsp_ready_bridge),
-    .eai_icb_rsp_rdata(eai_icb_rsp_rdata_bridge),
-    .eai_icb_rsp_err(eai_icb_rsp_err_bridge),
-      
-    .eai_mem_holdup(eai_mem_holdup_bridge),
-    
-    .clk(clk_core_exu)
-      
-  );
-  // End
 
 
   e203_biu u_e203_biu(

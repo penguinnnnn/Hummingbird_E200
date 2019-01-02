@@ -13,6 +13,10 @@
  See the License for the specific language governing permissions and     
  limitations under the License.                                          
  */                                                                      
+
+// For Lab3, Simulation: CFG_BRAM_SIM; On board: CFG_DDR3
+`define LAB3_CFG_SIMULATION
+//`define E203_CFG_DTCM_ADDR_WIDTH 16
                                                                          
                                                                          
                                                                          
@@ -97,4 +101,4 @@
 `define E203_CFG_HAS_EAI
 `define E203_CFG_SUPPORT_SHARE_MULDIV
 `define E203_CFG_SUPPORT_AMO
-`define E203_CFG_DTCM_ADDR_WIDTH 16
+

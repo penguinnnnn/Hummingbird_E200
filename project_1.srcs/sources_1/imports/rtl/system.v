@@ -324,6 +324,7 @@ module system
     .clk_out1(clk_8388), // 8.388 MHz = 32.768 kHz * 256
     //.clk_out2(), // 65 MHz
     .clk_out2(clk_16M), // 16 MHz, this clock we set to 16MHz on Arty board
+    .clk_out3(clk_200M), // 16 MHz, this clock we set to 16MHz on Arty board
     .resetn(ck_rst),
     .locked(mmcm_locked)
   );
@@ -1090,8 +1091,85 @@ module system
   assign sw_3 = dut_io_pads_dbgmode2_n_i_ival;
   //
 
+wire axi_clk;
+wire axi_resetn;
+wire [3:0]s_axi_awid;
+wire [`LAB3_AXI_ADDR_WIDTH-1:0]s_axi_awaddr;
+wire [7:0]s_axi_awlen;
+wire [2:0]s_axi_awsize;
+wire [1:0]s_axi_awburst;
+wire s_axi_awlock;
+wire [3:0]s_axi_awcache;
+wire [2:0]s_axi_awprot;
+wire s_axi_awvalid;
+wire s_axi_awready;
+wire [31:0]s_axi_wdata;
+wire [3:0]s_axi_wstrb;
+wire s_axi_wlast;
+wire s_axi_wvalid;
+wire s_axi_wready;
+wire [3:0]s_axi_bid;
+wire [1:0]s_axi_bresp;
+wire s_axi_bvalid;
+wire s_axi_bready;
+wire [3:0]s_axi_arid;
+wire [`LAB3_AXI_ADDR_WIDTH-1:0]s_axi_araddr;
+wire [7:0]s_axi_arlen;
+wire [2:0]s_axi_arsize;
+wire [1:0]s_axi_arburst;
+wire s_axi_arlock;
+wire [3:0]s_axi_arcache;
+wire [2:0]s_axi_arprot;
+wire s_axi_arvalid;
+wire s_axi_arready;
+wire [3:0]s_axi_rid;
+wire [31:0]s_axi_rdata;
+wire [1:0]s_axi_rresp;
+wire s_axi_rlast;
+wire s_axi_rvalid;
+wire s_axi_rready;
+
   e203_soc_top dut
   (
+  .axi_clk(axi_clk),
+  .axi_resetn(axi_resetn),
+  .s_axi_awid(s_axi_awid),
+  .s_axi_awaddr(s_axi_awaddr),
+  .s_axi_awlen(s_axi_awlen),
+  .s_axi_awsize(s_axi_awsize),
+  .s_axi_awburst(s_axi_awburst),
+  .s_axi_awlock(s_axi_awlock),
+  .s_axi_awcache(s_axi_awcache),
+  .s_axi_awprot(s_axi_awprot),
+  .s_axi_awvalid(s_axi_awvalid),
+  .s_axi_awready(s_axi_awready),
+  .s_axi_wdata(s_axi_wdata),
+  .s_axi_wstrb(s_axi_wstrb),
+  .s_axi_wlast(s_axi_wlast),
+  .s_axi_wvalid(s_axi_wvalid),
+  .s_axi_wready(s_axi_wready),
+  .s_axi_bid(s_axi_bid),
+  .s_axi_bresp(s_axi_bresp),
+  .s_axi_bvalid(s_axi_bvalid),
+  .s_axi_bready(s_axi_bready),
+  .s_axi_arid(s_axi_arid),
+  .s_axi_araddr(s_axi_araddr),
+  .s_axi_arlen(s_axi_arlen),
+  .s_axi_arsize(s_axi_arsize),
+  .s_axi_arburst(s_axi_arburst),
+  .s_axi_arlock(s_axi_arlock),
+  .s_axi_arcache(s_axi_arcache),
+  .s_axi_arprot(s_axi_arprot),
+  .s_axi_arvalid(s_axi_arvalid),
+  .s_axi_arready(s_axi_arready),
+  .s_axi_rid(s_axi_rid),
+  .s_axi_rdata(s_axi_rdata),
+  .s_axi_rresp(s_axi_rresp),
+  .s_axi_rlast(s_axi_rlast),
+  .s_axi_rvalid(s_axi_rvalid),
+  .s_axi_rready(s_axi_rready),
+  
+  
     .hfextclk(clk_16M),
     .hfxoscen(),
 
@@ -1381,6 +1459,83 @@ module system
   assign dut_io_pads_qspi_dq_2_i_ival = qspi_ui_dq_i[2];
   assign dut_io_pads_qspi_dq_3_i_ival = qspi_ui_dq_i[3];
   assign qspi_sck = dut_io_pads_qspi_sck_o_oval;
+
+
+// =================== the DDR module ============================
+`ifdef LAB3_SIMULATION
+  axi_bram_ctrl_0 axi_bram(axi_clk, axi_resetn, s_axi_awid, 
+  s_axi_awaddr, s_axi_awlen, s_axi_awsize, s_axi_awburst, s_axi_awlock, s_axi_awcache, 
+  s_axi_awprot, s_axi_awvalid, s_axi_awready, s_axi_wdata, s_axi_wstrb, s_axi_wlast, 
+  s_axi_wvalid, s_axi_wready, s_axi_bid, s_axi_bresp, s_axi_bvalid, s_axi_bready, s_axi_arid, 
+  s_axi_araddr, s_axi_arlen, s_axi_arsize, s_axi_arburst, s_axi_arlock, s_axi_arcache, 
+  s_axi_arprot, s_axi_arvalid, s_axi_arready, s_axi_rid, s_axi_rdata, s_axi_rresp, s_axi_rlast, 
+  s_axi_rvalid, s_axi_rready);
+ `else
+  ddr3_controller u_ddr_controller(
+  .ARESETN_0(axi_resetn),
+  .DDR3_0_addr(DDR3_0_addr),
+  .DDR3_0_ba(DDR3_0_ba),
+  .DDR3_0_cas_n(DDR3_0_cas_n),
+  .DDR3_0_ck_n(DDR3_0_ck_n),
+  .DDR3_0_ck_p(DDR3_0_ck_p),
+  .DDR3_0_cke(DDR3_0_cke),
+  .DDR3_0_dm(DDR3_0_dm),
+  .DDR3_0_dq(DDR3_0_dq),
+  .DDR3_0_dqs_n(DDR3_0_dqs_n),
+  .DDR3_0_dqs_p(DDR3_0_dqs_p),
+  .DDR3_0_odt(DDR3_0_odt),
+  .DDR3_0_ras_n(DDR3_0_ras_n),
+  .DDR3_0_reset_n(DDR3_0_reset_n),
+  .DDR3_0_we_n(DDR3_0_we_n),
+  .S00_ACLK_0(axi_clk),
+  .S00_AXI_0_araddr(s_axi_araddr),
+  .S00_AXI_0_arburst(s_axi_arburst),
+  .S00_AXI_0_arcache(s_axi_arcache),
+  .S00_AXI_0_arid(s_axi_arid),
+  .S00_AXI_0_arlen(s_axi_arlen),
+  .S00_AXI_0_arlock(s_axi_arlock),
+  .S00_AXI_0_arprot(s_axi_arprot),
+  .S00_AXI_0_arqos(s_axi_arqos),
+  .S00_AXI_0_arready(s_axi_arready),
+  .S00_AXI_0_arregion(s_axi_arregion),
+  .S00_AXI_0_arsize(s_axi_arsize),
+  .S00_AXI_0_arvalid(s_axi_arvalid),
+  .S00_AXI_0_awaddr(s_axi_awaddr),
+  .S00_AXI_0_awburst(s_axi_awburst),
+  .S00_AXI_0_awcache(s_axi_awcache),
+  .S00_AXI_0_awid(s_axi_awid),
+  .S00_AXI_0_awlen(s_axi_awlen),
+  .S00_AXI_0_awlock(s_axi_awlock),
+  .S00_AXI_0_awprot(s_axi_awprot),
+  .S00_AXI_0_awqos(s_axi_awqos),
+  .S00_AXI_0_awready(s_axi_awready),
+  .S00_AXI_0_awregion(s_axi_awregion),
+  .S00_AXI_0_awsize(s_axi_awsize),
+  .S00_AXI_0_awvalid(s_axi_awvalid),
+  .S00_AXI_0_bid(s_axi_bid),
+  .S00_AXI_0_bready(s_axi_bready),
+  .S00_AXI_0_bresp(s_axi_bresp),
+  .S00_AXI_0_bvalid(s_axi_bvalid),
+  .S00_AXI_0_rdata(s_axi_rdata),
+  .S00_AXI_0_rid(s_axi_rid),
+  .S00_AXI_0_rlast(s_axi_rlast),
+  .S00_AXI_0_rready(s_axi_rready),
+  .S00_AXI_0_rresp(s_axi_rresp),
+  .S00_AXI_0_rvalid(s_axi_rvalid),
+  .S00_AXI_0_wdata(s_axi_wdata),
+  .S00_AXI_0_wlast(s_axi_wlast),
+  .S00_AXI_0_wready(s_axi_wready),
+  .S00_AXI_0_wstrb(s_axi_wstrb),
+  .S00_AXI_0_wvalid(s_axi_wvalid),
+  .init_calib_complete_0(init_calib_complete_0),
+  .mmcm_locked_0(mmcm_locked_0),
+  .sys_clk_i_0(clk_200M),
+  .sys_rst_0(reset_periph)
+  );
+  
+ 
+`endif
+
 
 endmodule
 

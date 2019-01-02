@@ -1,6 +1,7 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../project_1.srcs/sources_1/imports/rtl/core" --include "../../../../project_1.srcs/sources_1/imports/rtl/perips" \
-"../../../../project_1.srcs/sources_1/ip/mmcm_1/mmcm_sim_netlist.v" \
+verilog xil_defaultlib  --include "../../../../project_1.srcs/sources_1/imports/rtl/core" --include "../../../../project_1.srcs/sources_1/imports/rtl/perips" --include "../../../../project_1.srcs/sources_1/ip/mmcm_1" \
+"../../../../project_1.srcs/sources_1/ip/mmcm_1/mmcm_clk_wiz.v" \
+"../../../../project_1.srcs/sources_1/ip/mmcm_1/mmcm.v" \
 "../../../../project_1.srcs/sources_1/imports/src/clkdivider.v" \
 "../../../../project_1.srcs/sources_1/imports/rtl/core/e203_biu.v" \
 "../../../../project_1.srcs/sources_1/imports/rtl/core/e203_clk_ctrl.v" \

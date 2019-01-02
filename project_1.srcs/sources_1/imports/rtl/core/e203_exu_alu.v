@@ -767,9 +767,8 @@ module e203_exu_alu(
          & (o_need_wbck ? wbck_o_ready : 1'b1); 
 
   assign wbck_o_valid = o_need_wbck & o_valid & (o_need_cmt  ? cmt_o_ready  : 1'b1);
-  //assign cmt_o_valid  = o_need_cmt  & o_valid & (o_need_wbck ? wbck_o_ready : 1'b1);
-  assign cmt_o_valid = o_need_cmt & o_valid;
-  // lab1.2
+  assign cmt_o_valid  = o_need_cmt  & o_valid & (o_need_wbck ? wbck_o_ready : 1'b1);
+  // 
   //  The commint interface have some special signals
   assign cmt_o_instr   = i_instr;  
   assign cmt_o_pc   = i_pc;  

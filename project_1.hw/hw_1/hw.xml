@@ -27,8 +27,8 @@
     <Object name="xc7a35t_0" gui_info="">
       <Properties Property="FULL_PROBES.FILE" value=""/>
       <Properties Property="PROBES.FILE" value=""/>
-      <Properties Property="PROGRAM.HW_BITSTREAM" value="D:/vivado/vivado/2018.1/data/xicom/cfgmem/bitfile/spi_xc7a35t_pullnone.bit"/>
-      <Properties Property="PROGRAM.HW_CFGMEM_PART" value=""/>
+      <Properties Property="PROGRAM.HW_BITSTREAM" value="$_project_name_.runs/impl_1/system.bit"/>
+      <Properties Property="PROGRAM.HW_CFGMEM_PART" value="n25q64-3.3v-spi-x1_x2_x4"/>
       <Properties Property="SLR.COUNT" value="1"/>
     </Object>
     <Object name="xc7a50t_0" gui_info="">

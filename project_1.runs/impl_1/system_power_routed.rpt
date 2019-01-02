@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date             : Sun Nov 18 14:26:57 2018
-| Host             : DESKTOP-FF2K42Q running 64-bit major release  (build 9200)
+| Date             : Fri Oct 12 13:07:56 2018
+| Host             : DESKTOP-6B5D8GA running 64-bit major release  (build 9200)
 | Command          : report_power -file system_power_routed.rpt -pb system_power_summary_routed.pb -rpx system_power_routed.rpx
 | Design           : system
 | Device           : xc7a35tftg256-1
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.197        |
+| Total On-Chip Power (W)  | 0.198        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.124        |
@@ -53,21 +53,21 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.003 |        6 |       --- |             --- |
-| Slice Logic              |    <0.001 |    18788 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     9376 |     20800 |           45.08 |
-|   CARRY4                 |    <0.001 |      228 |      8150 |            2.80 |
-|   Register               |    <0.001 |     6693 |     41600 |           16.09 |
+| Slice Logic              |     0.001 |    18723 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |     9297 |     20800 |           44.70 |
+|   CARRY4                 |    <0.001 |      222 |      8150 |            2.72 |
+|   Register               |    <0.001 |     6653 |     41600 |           15.99 |
 |   LUT as Distributed RAM |    <0.001 |       80 |      9600 |            0.83 |
-|   F7/F8 Muxes            |    <0.001 |      400 |     32600 |            1.23 |
+|   F7/F8 Muxes            |    <0.001 |      432 |     32600 |            1.33 |
 |   BUFG                   |    <0.001 |        2 |        32 |            6.25 |
-|   Others                 |     0.000 |      578 |       --- |             --- |
+|   Others                 |     0.000 |      574 |       --- |             --- |
 |   LUT as Shift Register  |     0.000 |        2 |      9600 |            0.02 |
-| Signals                  |    <0.001 |    15247 |       --- |             --- |
+| Signals                  |    <0.001 |    15187 |       --- |             --- |
 | Block RAM                |     0.009 |       32 |        50 |           64.00 |
 | MMCM                     |     0.108 |        1 |         5 |           20.00 |
 | I/O                      |     0.002 |       57 |       170 |           33.53 |
 | Static Power             |     0.073 |          |           |                 |
-| Total                    |     0.197 |          |           |                 |
+| Total                    |     0.198 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -208,9 +208,6 @@ Table of Contents
 |                     dp_gt0.vec_0_dfflrs                              |    <0.001 |
 |                     dp_gt0.vec_31_dfflr                              |    <0.001 |
 |               u_e203_exu                                             |    <0.001 |
-|                 alu_wbck_o_rdidx_dff                                 |    <0.001 |
-|                 alu_wbck_o_valid_dff                                 |    <0.001 |
-|                 alu_wbck_o_wdat_dff                                  |    <0.001 |
 |                 u_e203_exu_alu                                       |    <0.001 |
 |                   u_e203_exu_alu_dpath                               |    <0.001 |
 |                     sbf_0_dffl                                       |    <0.001 |

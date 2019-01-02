@@ -170,24 +170,17 @@ module e203_exu(
   input                          agu_icb_rsp_excl_ok,
   input  [`E203_XLEN-1:0]        agu_icb_rsp_rdata,
 
+  `ifdef E203_HAS_CSR_EAI//{
   output         eai_csr_valid,
   input          eai_csr_ready,
   output  [31:0] eai_csr_addr,
   output         eai_csr_wr,
   output  [31:0] eai_csr_wdata,
   input   [31:0] eai_csr_rdata,
-  
-  // Lab2-2 Code Here
-  input                          eai_req_valid,
-  output                         eai_req_ready,
-  input  [`INSTR_WIDTH-1:0]      eai_req_instr,
-  input  [`DATA_WIDTH-1:0]       eai_req_rs1,
-  input  [`DATA_WIDTH-1:0]       eai_req_rs2,
-  input  [`DISP_ITAG_WIDTH-1:0]  eai_req_itag,
-    
-  output [`DISP_ITAG_WIDTH-1:0]  eai_rsp_itag,
-  output                         eai_rsp_err,
-  // End
+  `endif//}
+
+
+
 
   input  test_mode,
   input  clk_aon,
@@ -201,10 +194,10 @@ module e203_exu(
   wire [`E203_XLEN-1:0] rf_rs1;
   wire [`E203_XLEN-1:0] rf_rs2;
 
-  
   wire rf_wbck_ena;
   wire [`E203_XLEN-1:0] rf_wbck_wdat;
   wire [`E203_RFIDX_WIDTH-1:0] rf_wbck_rdidx;
+
 
   e203_exu_regfile u_e203_exu_regfile(
     .read_src1_idx (i_rs1idx ),
@@ -240,12 +233,6 @@ module e203_exu(
   wire dec_misalgn;
   wire dec_buserr;
   wire dec_ilegl;
-  
-  // Lab2-2 Code Here
-  wire dec_eai_bridge;
-  wire eai_need_rs1_bridge;
-  wire eai_need_rs2_bridge;
-  // End
 
 
   //////////////////////////////////////////////////////////////
@@ -275,11 +262,8 @@ module e203_exu(
     .dec_divu    (dec2ifu_divu  ),
     .dec_remu    (dec2ifu_remu  ),
 
-    // Lab2-2 Code Here
-    .dec_eai      (dec_eai_bridge),
-    .eai_need_rs1 (eai_need_rs1_bridge),
-    .eai_need_rs2 (eai_need_rs2_bridge),
-    // End
+    
+
 
     .dec_info  (dec_info ),
     .dec_rs1x0 (dec_rs1x0),
@@ -342,17 +326,6 @@ module e203_exu(
   wire wfi_halt_exu_ack;
 
   wire amo_wait;
-  
-  // Lab2-2 Code Here
-  wire disp_o_eai_valid_bridge;
-  wire disp_o_eai_ready_bridge;
-  
-  wire [`E203_XLEN-1:0] disp_o_eai_rs1_bridge;
-  wire [`E203_XLEN-1:0] disp_o_eai_rs2_bridge;
-  wire disp_o_eai_rdwen_bridge;
-  wire [`E203_RFIDX_WIDTH-1:0] disp_o_eai_rdidx_bridge;
-  wire [`E203_ITAG_WIDTH-1:0] disp_o_eai_itag_bridge;
-  // End
 
   e203_exu_disp u_e203_exu_disp(
     .wfi_halt_exu_req    (wfi_halt_exu_req),
@@ -396,20 +369,6 @@ module e203_exu(
     .disp_o_alu_misalgn  (disp_alu_misalgn    ),
     .disp_o_alu_buserr   (disp_alu_buserr     ),
     .disp_o_alu_ilegl    (disp_alu_ilegl      ),
-    
-    // Lab2-2 Code Here
-    .dec_eai                (dec_eai_bridge),
-    .eai_need_rs1           (eai_need_rs1_bridge),
-    .eai_need_rs2           (eai_need_rs2_bridge),
-    .disp_o_eai_valid       (disp_o_eai_valid_bridge), 
-    .disp_o_eai_ready       (disp_o_eai_ready_bridge),
-    
-    .disp_o_eai_rs1         (disp_o_eai_rs1_bridge),
-    .disp_o_eai_rs2         (disp_o_eai_rs2_bridge),
-    .disp_o_eai_rdwen       (disp_o_eai_rdwen_bridge),
-    .disp_o_eai_rdidx       (disp_o_eai_rdidx_bridge),
-    .disp_o_eai_itag        (disp_o_eai_itag_bridge),
-    // End
 
     .disp_oitf_ena       (disp_oitf_ena    ),
     .disp_oitf_ptr       (disp_oitf_ptr    ),
@@ -434,10 +393,6 @@ module e203_exu(
     .oitfrd_match_disprs2(oitfrd_match_disprs2),
     .oitfrd_match_disprs3(oitfrd_match_disprs3),
     .oitfrd_match_disprd (oitfrd_match_disprd ),
-    
-    .wbck_i_ena(rf_wbck_ena),
-    .wbck_i_wdat(rf_wbck_wdat),
-    .wbck_i_rdidx(rf_wbck_rdidx),
     
     .clk                 (clk  ),
     .rst_n               (rst_n) 
@@ -713,10 +668,6 @@ module e203_exu(
 
   //////////////////////////////////////////////////////////////
   // Instantiate the Final Write-Back
-  wire rf_wbck_ena_q;
-  wire [`E203_XLEN-1:0] rf_wbck_wdat_q;
-  wire [`E203_RFIDX_WIDTH-1:0] rf_wbck_rdidx_q;
-  
   e203_exu_wbck u_e203_exu_wbck(
 
     .alu_wbck_i_valid   (alu_wbck_o_valid ), 
@@ -731,17 +682,14 @@ module e203_exu(
     .longp_wbck_i_rdfpu (longp_wbck_o_rdfpu ),
     .longp_wbck_i_flags (longp_wbck_o_flags ),
 
-    .rf_wbck_o_ena      (rf_wbck_ena_q   ),
-    .rf_wbck_o_wdat     (rf_wbck_wdat_q   ),
-    .rf_wbck_o_rdidx    (rf_wbck_rdidx_q  ),
+    .rf_wbck_o_ena      (rf_wbck_ena    ),
+    .rf_wbck_o_wdat     (rf_wbck_wdat   ),
+    .rf_wbck_o_rdidx    (rf_wbck_rdidx  ),
        
 
     .clk                 (clk          ),
     .rst_n               (rst_n        ) 
   );
-    sirv_gnrl_dfflr #(1)  alu_wbck_o_valid_dff(1, rf_wbck_ena_q, rf_wbck_ena, clk, rst_n);
-    sirv_gnrl_dfflr #(`E203_XLEN) alu_wbck_o_wdat_dff(1, rf_wbck_wdat_q, rf_wbck_wdat, clk, rst_n);
-    sirv_gnrl_dfflr #(`E203_RFIDX_WIDTH)  alu_wbck_o_rdidx_dff(1, rf_wbck_rdidx_q, rf_wbck_rdidx, clk, rst_n);
 
   //////////////////////////////////////////////////////////////
   // Instantiate the Commit

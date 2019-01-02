@@ -37,6 +37,47 @@
 module e203_cpu #(
     parameter MASTER = 1
 )(
+
+
+  output axi_clk,
+output axi_resetn,
+output [3:0]s_axi_awid,
+output [`LAB3_AXI_ADDR_WIDTH-1:0]s_axi_awaddr,
+output [7:0]s_axi_awlen,
+output [2:0]s_axi_awsize,
+output [1:0]s_axi_awburst,
+output s_axi_awlock,
+output [3:0]s_axi_awcache,
+output [2:0]s_axi_awprot,
+output s_axi_awvalid,
+input s_axi_awready,
+output [31:0]s_axi_wdata,
+output [3:0]s_axi_wstrb,
+output s_axi_wlast,
+output s_axi_wvalid,
+input s_axi_wready,
+input [3:0]s_axi_bid,
+input [1:0]s_axi_bresp,
+input s_axi_bvalid,
+output s_axi_bready,
+output [3:0]s_axi_arid,
+output [`LAB3_AXI_ADDR_WIDTH-1:0]s_axi_araddr,
+output [7:0]s_axi_arlen,
+output [2:0]s_axi_arsize,
+output [1:0]s_axi_arburst,
+output s_axi_arlock,
+output [3:0]s_axi_arcache,
+output [2:0]s_axi_arprot,
+output s_axi_arvalid,
+input s_axi_arready,
+input [3:0]s_axi_rid,
+input [31:0]s_axi_rdata,
+input [1:0]s_axi_rresp,
+input s_axi_rlast,
+input s_axi_rvalid,
+output s_axi_rready,
+
+
   output [`E203_PC_SIZE-1:0] inspect_pc,
   output inspect_dbg_irq      ,
   output inspect_mem_cmd_valid,
@@ -749,51 +790,109 @@ module e203_cpu #(
     .rst_n                   (rst_itcm) 
   );
   `endif//}
-
+  
   `ifdef E203_HAS_DTCM //{
-  e203_dtcm_ctrl u_e203_dtcm_ctrl(
-    .tcm_cgstop   (tcm_cgstop),
-
-    .dtcm_active  (dtcm_active),
-
-    .lsu2dtcm_icb_cmd_valid  (lsu2dtcm_icb_cmd_valid),
-    .lsu2dtcm_icb_cmd_ready  (lsu2dtcm_icb_cmd_ready),
-    .lsu2dtcm_icb_cmd_addr   (lsu2dtcm_icb_cmd_addr ),
-    .lsu2dtcm_icb_cmd_read   (lsu2dtcm_icb_cmd_read ),
-    .lsu2dtcm_icb_cmd_wdata  (lsu2dtcm_icb_cmd_wdata),
-    .lsu2dtcm_icb_cmd_wmask  (lsu2dtcm_icb_cmd_wmask),
+    lab3_mem_ctrl u_lab3_mem_ctrl(
+        .dtcm_active  (dtcm_active),
     
-    .lsu2dtcm_icb_rsp_valid  (lsu2dtcm_icb_rsp_valid),
-    .lsu2dtcm_icb_rsp_ready  (lsu2dtcm_icb_rsp_ready),
-    .lsu2dtcm_icb_rsp_err    (lsu2dtcm_icb_rsp_err  ),
-    .lsu2dtcm_icb_rsp_rdata  (lsu2dtcm_icb_rsp_rdata),
+        .lsu2dtcm_icb_cmd_valid  (lsu2dtcm_icb_cmd_valid),
+        .lsu2dtcm_icb_cmd_ready  (lsu2dtcm_icb_cmd_ready),
+        .lsu2dtcm_icb_cmd_addr   (lsu2dtcm_icb_cmd_addr ),
+        .lsu2dtcm_icb_cmd_read   (lsu2dtcm_icb_cmd_read ),
+        .lsu2dtcm_icb_cmd_wdata  (lsu2dtcm_icb_cmd_wdata),
+        .lsu2dtcm_icb_cmd_wmask  (lsu2dtcm_icb_cmd_wmask),
+        
+        .lsu2dtcm_icb_rsp_valid  (lsu2dtcm_icb_rsp_valid),
+        .lsu2dtcm_icb_rsp_ready  (lsu2dtcm_icb_rsp_ready),
+        .lsu2dtcm_icb_rsp_err    (lsu2dtcm_icb_rsp_err  ),
+        .lsu2dtcm_icb_rsp_rdata  (lsu2dtcm_icb_rsp_rdata),
+        
+        .axi_clk(axi_clk),
+        .axi_resetn(axi_resetn),
+        .s_axi_awid(s_axi_awid),
+        .s_axi_awaddr(s_axi_awaddr),
+        .s_axi_awlen(s_axi_awlen),
+        .s_axi_awsize(s_axi_awsize),
+        .s_axi_awburst(s_axi_awburst),
+        .s_axi_awlock(s_axi_awlock),
+        .s_axi_awcache(s_axi_awcache),
+        .s_axi_awprot(s_axi_awprot),
+        .s_axi_awvalid(s_axi_awvalid),
+        .s_axi_awready(s_axi_awready),
+        .s_axi_wdata(s_axi_wdata),
+        .s_axi_wstrb(s_axi_wstrb),
+        .s_axi_wlast(s_axi_wlast),
+        .s_axi_wvalid(s_axi_wvalid),
+        .s_axi_wready(s_axi_wready),
+        .s_axi_bid(s_axi_bid),
+        .s_axi_bresp(s_axi_bresp),
+        .s_axi_bvalid(s_axi_bvalid),
+        .s_axi_bready(s_axi_bready),
+        .s_axi_arid(s_axi_arid),
+        .s_axi_araddr(s_axi_araddr),
+        .s_axi_arlen(s_axi_arlen),
+        .s_axi_arsize(s_axi_arsize),
+        .s_axi_arburst(s_axi_arburst),
+        .s_axi_arlock(s_axi_arlock),
+        .s_axi_arcache(s_axi_arcache),
+        .s_axi_arprot(s_axi_arprot),
+        .s_axi_arvalid(s_axi_arvalid),
+        .s_axi_arready(s_axi_arready),
+        .s_axi_rid(s_axi_rid),
+        .s_axi_rdata(s_axi_rdata),
+        .s_axi_rresp(s_axi_rresp),
+        .s_axi_rlast(s_axi_rlast),
+        .s_axi_rvalid(s_axi_rvalid),
+        .s_axi_rready(s_axi_rready),
+        
+        .test_mode               (test_mode),
+        .clk                     (clk_dtcm),
+        .rst_n                   (rst_dtcm)
+        
+    );
+//  e203_dtcm_ctrl u_e203_dtcm_ctrl(
+//    .tcm_cgstop   (tcm_cgstop),
 
-    .dtcm_ram_cs             (dtcm_ram_cs  ),
-    .dtcm_ram_we             (dtcm_ram_we  ),
-    .dtcm_ram_addr           (dtcm_ram_addr), 
-    .dtcm_ram_wem            (dtcm_ram_wem ),
-    .dtcm_ram_din            (dtcm_ram_din ),         
-    .dtcm_ram_dout           (dtcm_ram_dout),
-    .clk_dtcm_ram            (clk_dtcm_ram ),
+//    .dtcm_active  (dtcm_active),
 
-  `ifdef E203_HAS_DTCM_EXTITF //{
-    .ext2dtcm_icb_cmd_valid  (ext2dtcm_icb_cmd_valid),
-    .ext2dtcm_icb_cmd_ready  (ext2dtcm_icb_cmd_ready),
-    .ext2dtcm_icb_cmd_addr   (ext2dtcm_icb_cmd_addr ),
-    .ext2dtcm_icb_cmd_read   (ext2dtcm_icb_cmd_read ),
-    .ext2dtcm_icb_cmd_wdata  (ext2dtcm_icb_cmd_wdata),
-    .ext2dtcm_icb_cmd_wmask  (ext2dtcm_icb_cmd_wmask),
+//    .lsu2dtcm_icb_cmd_valid  (lsu2dtcm_icb_cmd_valid),
+//    .lsu2dtcm_icb_cmd_ready  (lsu2dtcm_icb_cmd_ready),
+//    .lsu2dtcm_icb_cmd_addr   (lsu2dtcm_icb_cmd_addr ),
+//    .lsu2dtcm_icb_cmd_read   (lsu2dtcm_icb_cmd_read ),
+//    .lsu2dtcm_icb_cmd_wdata  (lsu2dtcm_icb_cmd_wdata),
+//    .lsu2dtcm_icb_cmd_wmask  (lsu2dtcm_icb_cmd_wmask),
     
-    .ext2dtcm_icb_rsp_valid  (ext2dtcm_icb_rsp_valid),
-    .ext2dtcm_icb_rsp_ready  (ext2dtcm_icb_rsp_ready),
-    .ext2dtcm_icb_rsp_err    (ext2dtcm_icb_rsp_err  ),
-    .ext2dtcm_icb_rsp_rdata  (ext2dtcm_icb_rsp_rdata),
-  `endif//}
+//    .lsu2dtcm_icb_rsp_valid  (lsu2dtcm_icb_rsp_valid),
+//    .lsu2dtcm_icb_rsp_ready  (lsu2dtcm_icb_rsp_ready),
+//    .lsu2dtcm_icb_rsp_err    (lsu2dtcm_icb_rsp_err  ),
+//    .lsu2dtcm_icb_rsp_rdata  (lsu2dtcm_icb_rsp_rdata),
 
-    .test_mode               (test_mode),
-    .clk                     (clk_dtcm),
-    .rst_n                   (rst_dtcm) 
-  );
+//    .dtcm_ram_cs             (dtcm_ram_cs  ),
+//    .dtcm_ram_we             (dtcm_ram_we  ),
+//    .dtcm_ram_addr           (dtcm_ram_addr), 
+//    .dtcm_ram_wem            (dtcm_ram_wem ),
+//    .dtcm_ram_din            (dtcm_ram_din ),         
+//    .dtcm_ram_dout           (dtcm_ram_dout),
+//    .clk_dtcm_ram            (clk_dtcm_ram ),
+
+//  `ifdef E203_HAS_DTCM_EXTITF //{
+//    .ext2dtcm_icb_cmd_valid  (ext2dtcm_icb_cmd_valid),
+//    .ext2dtcm_icb_cmd_ready  (ext2dtcm_icb_cmd_ready),
+//    .ext2dtcm_icb_cmd_addr   (ext2dtcm_icb_cmd_addr ),
+//    .ext2dtcm_icb_cmd_read   (ext2dtcm_icb_cmd_read ),
+//    .ext2dtcm_icb_cmd_wdata  (ext2dtcm_icb_cmd_wdata),
+//    .ext2dtcm_icb_cmd_wmask  (ext2dtcm_icb_cmd_wmask),
+    
+//    .ext2dtcm_icb_rsp_valid  (ext2dtcm_icb_rsp_valid),
+//    .ext2dtcm_icb_rsp_ready  (ext2dtcm_icb_rsp_ready),
+//    .ext2dtcm_icb_rsp_err    (ext2dtcm_icb_rsp_err  ),
+//    .ext2dtcm_icb_rsp_rdata  (ext2dtcm_icb_rsp_rdata),
+//  `endif//}
+
+//    .test_mode               (test_mode),
+//    .clk                     (clk_dtcm),
+//    .rst_n                   (rst_dtcm) 
+//  );
   `endif//}
 
 

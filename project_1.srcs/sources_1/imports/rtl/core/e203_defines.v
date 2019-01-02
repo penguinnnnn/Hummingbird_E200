@@ -34,6 +34,15 @@
 // ====================================================================
 `include "config.v"
 
+`ifdef LAB3_CFG_SIMULATION
+    `define LAB3_SIMULATION
+    `define LAB3_AXI_ADDR_WIDTH 20
+`else
+    `define LAB3_DDR3
+    `define LAB3_AXI_ADDR_WIDTH 26
+`endif
+`define LAB3
+
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
@@ -213,12 +222,12 @@
 //
 `ifdef E203_CFG_HAS_DTCM//{
   `define E203_HAS_DTCM 1
-  `define E203_DTCM_ADDR_WIDTH  `E203_CFG_DTCM_ADDR_WIDTH
+  `define E203_DTCM_ADDR_WIDTH  `LAB3_AXI_ADDR_WIDTH
   // The DTCM size is 2^addr_width bytes, and DTCM is 32bits wide (4 bytes)
   //  so the DP is 2^addr_wdith/4
   //  so the AW is addr_wdith - 2
-  `define E203_DTCM_RAM_DP      (1<<(`E203_CFG_DTCM_ADDR_WIDTH-2)) 
-  `define E203_DTCM_RAM_AW          (`E203_CFG_DTCM_ADDR_WIDTH-2) 
+  `define E203_DTCM_RAM_DP      (1<<(`LAB3_AXI_ADDR_WIDTH-2)) 
+  `define E203_DTCM_RAM_AW          (`LAB3_AXI_ADDR_WIDTH-2) 
   `define E203_DTCM_BASE_REGION `E203_ADDR_SIZE-1:`E203_DTCM_ADDR_WIDTH
   
     `define E203_DTCM_DATA_WIDTH  32
@@ -793,22 +802,3 @@
   `endif
 
   `define E203_HAS_CSR_EAI  1
-  
-  // Lab2-2 Code Here
-  `define INPUT_H 7
-  `define INPUT_W 7
-  `define COORD_BIT 3
-  `define INPUT_BIT 16*49
-  `define KERNEL_BIT 16*9
-  `define OUTPUT_BITWIDTH 16
-  `define INPUT_PIXEL_BITWITH 16
-  `define KERNEL_H 3
-  `define KERNEL_W 3
-  `define WINDOW_BIT 16*49
-  `define INSTR_WIDTH 32
-  `define DATA_WIDTH 32
-  `define DISP_ITAG_WIDTH 2
-  // End
-  
-  
-  

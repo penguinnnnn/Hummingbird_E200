@@ -22,171 +22,171 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.cache/wt [current_project]
-set_property parent.project_path E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/DELL/Desktop/35T/project/project_1.cache/wt [current_project]
+set_property parent.project_path C:/Users/DELL/Desktop/35T/project/project_1.xpr [current_project]
 set_property XPM_LIBRARIES XPM_CDC [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo e:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.cache/ip [current_project]
+set_property ip_output_repo c:/Users/DELL/Desktop/35T/project/project_1.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog {
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_defines.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/config.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/i2c_master_defines.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_defines.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/config.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/i2c_master_defines.v
 }
-set_property file_type "Verilog Header" [get_files E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_defines.v]
-set_property file_type "Verilog Header" [get_files E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/config.v]
-set_property file_type "Verilog Header" [get_files E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/i2c_master_defines.v]
+set_property file_type "Verilog Header" [get_files C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_defines.v]
+set_property file_type "Verilog Header" [get_files C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/config.v]
+set_property file_type "Verilog Header" [get_files C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/i2c_master_defines.v]
 read_verilog -library xil_defaultlib {
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/src/clkdivider.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_biu.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_clk_ctrl.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_clkgate.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_core.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_cpu.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_cpu_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_dtcm_ctrl.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_dtcm_ram.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_extend_csr.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu_bjp.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu_csrctrl.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu_dpath.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu_lsuagu.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu_muldiv.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu_rglr.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_branchslv.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_commit.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_csr.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_decode.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_disp.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_excp.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_longpwbck.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_oitf.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_regfile.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_wbck.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_ifu.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_ifu_ifetch.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_ifu_ift2icb.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_ifu_litebpu.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_ifu_minidec.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_irq_sync.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_itcm_ctrl.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_itcm_ram.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_lsu.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_lsu_ctrl.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_reset_ctrl.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/soc/e203_soc_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_srams.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_clint.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_gfcm.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_hclkgen.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_hclkgen_rstsync.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_main.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_mems.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_perips.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_plic.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_pll.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_pllclkdiv.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/i2c_master_bit_ctrl.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/i2c_master_byte_ctrl.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/i2c_master_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_1cyc_sram_ctrl.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_AsyncResetReg.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_AsyncResetRegVec.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_AsyncResetRegVec_1.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_AsyncResetRegVec_129.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_AsyncResetRegVec_36.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_AsyncResetRegVec_67.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_DeglitchShiftRegister.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_LevelGateway.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_ResetCatchAndSync.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_ResetCatchAndSync_2.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_aon.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_aon_lclkgen_regs.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_aon_porrst.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_aon_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_aon_wrapper.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_clint.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_clint_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/debug/sirv_debug_csr.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/debug/sirv_debug_module.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/debug/sirv_debug_ram.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/debug/sirv_debug_rom.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_expl_apb_slv.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_expl_axi_slv.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_flash_qspi.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_flash_qspi_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_gnrl_bufs.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_gnrl_dffs.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_gnrl_icbs.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_gnrl_ram.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_gpio.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_gpio_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_hclkgen_regs.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/fab/sirv_icb1to16_bus.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/fab/sirv_icb1to2_bus.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/fab/sirv_icb1to8_bus.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/debug/sirv_jtag_dtm.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_jtaggpioport.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/mems/sirv_mrom.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/mems/sirv_mrom_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_otp_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_plic_man.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_plic_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pmu.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pmu_core.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwm16.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwm16_core.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwm16_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwm8.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwm8_core.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwm8_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwmgpioport.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_1cs.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_1cs_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_4cs.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_4cs_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_arbiter.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_fifo.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_media.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_media_1.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_media_2.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_physical.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_physical_1.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_physical_2.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_queue.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_queue_1.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_repeater_6.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_rtc.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_sim_ram.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_spi_flashmap.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_spigpioport.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_spigpioport_1.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_spigpioport_2.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_sram_icb_ctrl.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_tl_repeater_5.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_tlfragmenter_qspi_1.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_tlwidthwidget_qspi.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_uart.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_uart_top.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_uartgpioport.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_uartrx.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_uarttx.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_wdog.v
-  E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/imports/rtl/system.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/src/clkdivider.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_biu.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_clk_ctrl.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_clkgate.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_core.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_cpu.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_cpu_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_dtcm_ctrl.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_dtcm_ram.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_extend_csr.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu_bjp.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu_csrctrl.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu_dpath.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu_lsuagu.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu_muldiv.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_alu_rglr.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_branchslv.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_commit.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_csr.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_decode.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_disp.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_excp.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_longpwbck.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_oitf.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_regfile.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_exu_wbck.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_ifu.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_ifu_ifetch.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_ifu_ift2icb.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_ifu_litebpu.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_ifu_minidec.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_irq_sync.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_itcm_ctrl.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_itcm_ram.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_lsu.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_lsu_ctrl.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_reset_ctrl.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/soc/e203_soc_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/core/e203_srams.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_clint.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_gfcm.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_hclkgen.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_hclkgen_rstsync.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_main.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_mems.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_perips.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_plic.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_pll.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_pllclkdiv.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/subsys/e203_subsys_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/i2c_master_bit_ctrl.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/i2c_master_byte_ctrl.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/i2c_master_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_1cyc_sram_ctrl.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_AsyncResetReg.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_AsyncResetRegVec.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_AsyncResetRegVec_1.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_AsyncResetRegVec_129.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_AsyncResetRegVec_36.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_AsyncResetRegVec_67.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_DeglitchShiftRegister.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_LevelGateway.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_ResetCatchAndSync.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_ResetCatchAndSync_2.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_aon.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_aon_lclkgen_regs.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_aon_porrst.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_aon_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_aon_wrapper.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_clint.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_clint_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/debug/sirv_debug_csr.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/debug/sirv_debug_module.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/debug/sirv_debug_ram.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/debug/sirv_debug_rom.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_expl_apb_slv.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_expl_axi_slv.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_flash_qspi.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_flash_qspi_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_gnrl_bufs.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_gnrl_dffs.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_gnrl_icbs.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_gnrl_ram.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_gpio.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_gpio_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_hclkgen_regs.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/fab/sirv_icb1to16_bus.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/fab/sirv_icb1to2_bus.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/fab/sirv_icb1to8_bus.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/debug/sirv_jtag_dtm.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_jtaggpioport.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/mems/sirv_mrom.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/mems/sirv_mrom_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_otp_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_plic_man.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_plic_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pmu.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pmu_core.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwm16.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwm16_core.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwm16_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwm8.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwm8_core.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwm8_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_pwmgpioport.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_1cs.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_1cs_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_4cs.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_4cs_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_arbiter.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_fifo.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_media.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_media_1.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_media_2.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_physical.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_physical_1.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_qspi_physical_2.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_queue.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_queue_1.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_repeater_6.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_rtc.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_sim_ram.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_spi_flashmap.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_spigpioport.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_spigpioport_1.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_spigpioport_2.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/general/sirv_sram_icb_ctrl.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_tl_repeater_5.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_tlfragmenter_qspi_1.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_tlwidthwidget_qspi.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_uart.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_uart_top.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_uartgpioport.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_uartrx.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_uarttx.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/perips/sirv_wdog.v
+  C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/imports/rtl/system.v
 }
-read_ip -quiet E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/ip/reset_sys_1/reset_sys.xci
-set_property used_in_implementation false [get_files -all e:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/ip/reset_sys_1/reset_sys_board.xdc]
-set_property used_in_implementation false [get_files -all e:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/ip/reset_sys_1/reset_sys.xdc]
-set_property used_in_implementation false [get_files -all e:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/ip/reset_sys_1/reset_sys_ooc.xdc]
+read_ip -quiet C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/ip/reset_sys_1/reset_sys.xci
+set_property used_in_implementation false [get_files -all c:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/ip/reset_sys_1/reset_sys_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/ip/reset_sys_1/reset_sys.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/ip/reset_sys_1/reset_sys_ooc.xdc]
 
-read_ip -quiet E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/ip/mmcm_1/mmcm.xci
-set_property used_in_implementation false [get_files -all e:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/ip/mmcm_1/mmcm_board.xdc]
-set_property used_in_implementation false [get_files -all e:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/ip/mmcm_1/mmcm.xdc]
-set_property used_in_implementation false [get_files -all e:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/sources_1/ip/mmcm_1/mmcm_ooc.xdc]
+read_ip -quiet C:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/ip/mmcm_1/mmcm.xci
+set_property used_in_implementation false [get_files -all c:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/ip/mmcm_1/mmcm_board.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/ip/mmcm_1/mmcm.xdc]
+set_property used_in_implementation false [get_files -all c:/Users/DELL/Desktop/35T/project/project_1.srcs/sources_1/ip/mmcm_1/mmcm_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -196,8 +196,8 @@ set_property used_in_implementation false [get_files -all e:/ciaslab/vivado_proj
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/constrs_1/new/e203_0408.xdc
-set_property used_in_implementation false [get_files E:/ciaslab/vivado_project_lab1.1_V2/35T/project/project_1.srcs/constrs_1/new/e203_0408.xdc]
+read_xdc C:/Users/DELL/Desktop/35T/project/project_1.srcs/constrs_1/new/e203_0408.xdc
+set_property used_in_implementation false [get_files C:/Users/DELL/Desktop/35T/project/project_1.srcs/constrs_1/new/e203_0408.xdc]
 
 set_param ips.enableIPCacheLiteLoad 0
 close [open __synthesis_is_running__ w]

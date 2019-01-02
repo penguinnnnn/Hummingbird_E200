@@ -161,25 +161,6 @@ module e203_lsu(
   input                          biu_icb_rsp_err  ,
   input                          biu_icb_rsp_excl_ok  ,
   input  [`E203_XLEN-1:0]        biu_icb_rsp_rdata,
-  
-  // Lab2-2 Code Here
-  input                          eai_mem_holdup,
-  output                         eai_icb_cmd_valid,
-  input                          eai_icb_cmd_ready,
-  input  [`E203_ADDR_SIZE-1:0]   eai_icb_cmd_addr,
-  input                          eai_icb_cmd_read,
-  input  [`E203_XLEN-1:0]        eai_icb_cmd_wdata,
-  input  [`E203_XLEN/8-1:0]      eai_icb_cmd_wmask,
-  input                          eai_icb_cmd_lock,
-  input                          eai_icb_cmd_excl,
-  input  [1:0]                   eai_icb_cmd_size,
-  
-  output                         eai_icb_rsp_valid,
-  input                          eai_icb_rsp_ready,
-  output                         eai_icb_rsp_err,
-  output                         eai_icb_rsp_excl_ok,
-  output [`E203_XLEN-1:0]        eai_icb_rsp_rdata,
-  // End
 
 
   input  clk,
@@ -253,24 +234,24 @@ module e203_lsu(
     .agu_icb_rsp_excl_ok   (agu_icb_rsp_excl_ok),
     .agu_icb_rsp_rdata     (agu_icb_rsp_rdata),
  
+      `ifndef E203_HAS_EAI 
+    .eai_mem_holdup        (1'b0),
+    .eai_icb_cmd_valid     (1'b0),
+    .eai_icb_cmd_ready     (),
+    .eai_icb_cmd_addr      (`E203_ADDR_SIZE'b0 ),
+    .eai_icb_cmd_read      (1'b0 ),
+    .eai_icb_cmd_wdata     (`E203_XLEN'b0),
+    .eai_icb_cmd_wmask     ({`E203_XLEN/8{1'b0}}),
+    .eai_icb_cmd_lock      (1'b0),
+    .eai_icb_cmd_excl      (1'b0),
+    .eai_icb_cmd_size      (2'b0),
     
-    .eai_mem_holdup        (eai_mem_holdup),
-    .eai_icb_cmd_valid     (eai_icb_cmd_valid),
-    .eai_icb_cmd_ready     (eai_icb_cmd_ready),
-    .eai_icb_cmd_addr      (eai_icb_cmd_addr),
-    .eai_icb_cmd_read      (eai_icb_cmd_read),
-    .eai_icb_cmd_wdata     (eai_icb_cmd_wdata),
-    .eai_icb_cmd_wmask     (eai_icb_cmd_wmask),
-    .eai_icb_cmd_lock      (eai_icb_cmd_lock),
-    .eai_icb_cmd_excl      (eai_icb_cmd_excl),
-    .eai_icb_cmd_size      (eai_icb_cmd_size),
-    
-    .eai_icb_rsp_valid     (eai_icb_rsp_valid),
-    .eai_icb_rsp_ready     (eai_icb_rsp_ready),
-    .eai_icb_rsp_err       (eai_icb_rsp_err),
-    .eai_icb_rsp_excl_ok   (eai_icb_rsp_excl_ok),
-    .eai_icb_rsp_rdata     (eai_icb_rsp_rdata),
-           
+    .eai_icb_rsp_valid     (),
+    .eai_icb_rsp_ready     (1'b0),
+    .eai_icb_rsp_err       (),
+    .eai_icb_rsp_excl_ok   (),
+    .eai_icb_rsp_rdata     (),
+      `endif           
 
 
       `ifdef E203_HAS_DCACHE
