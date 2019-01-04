@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tftg256-1" LaunchTime="1539320665">
-  <File Type="PA-TCL" Name="system.tcl"/>
-  <File Type="REPORTS-TCL" Name="system_reports.tcl"/>
-  <File Type="RDS-RDS" Name="system.vds"/>
-  <File Type="RDS-UTIL" Name="system_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="system_utilization_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7a35tftg256-1" LaunchTime="1546594620">
+  <File Type="VDS-TIMING-PB" Name="system_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="system_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="system.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="system_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="system_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="system_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="system.vds"/>
+  <File Type="REPORTS-TCL" Name="system_reports.tcl"/>
+  <File Type="PA-TCL" Name="system.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/axi_wrapper.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/src/clkdivider.v">
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../riscv/e200/fpga/artydevkit/src/clkdivider.v"/>
@@ -17,18 +27,18 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/rtl/core/e203_defines.v">
-      <FileInfo SFType="VHeader">
-        <Attr Name="ImportPath" Val="$PPRDIR/../../fpga-data/e200_opensource-master/fine/rtl/core/e203_defines.v"/>
-        <Attr Name="ImportTime" Val="1523151757"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/imports/rtl/core/config.v">
       <FileInfo SFType="VHeader">
         <Attr Name="ImportPath" Val="$PPRDIR/../../fpga-data/e200_opensource-master/fine/rtl/core/config.v"/>
         <Attr Name="ImportTime" Val="1523151754"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/rtl/core/e203_defines.v">
+      <FileInfo SFType="VHeader">
+        <Attr Name="ImportPath" Val="$PPRDIR/../../fpga-data/e200_opensource-master/fine/rtl/core/e203_defines.v"/>
+        <Attr Name="ImportTime" Val="1523151757"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -82,15 +92,6 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../fpga-data/e200_opensource-master/fine/rtl/core/e203_cpu_top.v"/>
         <Attr Name="ImportTime" Val="1523151757"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/rtl/core/e203_dtcm_ctrl.v">
-      <FileInfo>
-        <Attr Name="ImportPath" Val="$PPRDIR/../../fpga-data/e200_opensource-master/fine/rtl/core/e203_dtcm_ctrl.v"/>
-        <Attr Name="ImportTime" Val="1523151758"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -522,6 +523,13 @@
       <FileInfo>
         <Attr Name="ImportPath" Val="$PPRDIR/../../fpga-data/e200_opensource-master/fine/rtl/perips/i2c_master_top.v"/>
         <Attr Name="ImportTime" Val="1523151785"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/lab3_ddr_ctrl.v">
+      <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -1283,11 +1291,43 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/imports/rtl/core/e203_dtcm_ctrl.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../fpga-data/e200_opensource-master/fine/rtl/core/e203_dtcm_ctrl.v"/>
+        <Attr Name="ImportTime" Val="1523151758"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/imports/rtl/general/sirv_gnrl_xchecker.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="$PPRDIR/../../fpga-data/e200_opensource-master/fine/rtl/general/sirv_gnrl_xchecker.v"/>
         <Attr Name="ImportTime" Val="1523151781"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/ddr3_controller/ddr3_controller.bd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/ddr3_controller/ip/ddr3_controller_mig_7series_0_0/mig_a.prj">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="ScopedToCell" Val="ddr3_controller_mig_7series_0_0"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/ddr3_controller/hdl/ddr3_controller_wrapper.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -1316,6 +1356,7 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2016"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="reset_sys"/>
   <BlockFileSet Type="BlockSrcs" Name="mmcm"/>
+  <BlockFileSet Type="BlockSrcs" Name="axi_bram_ctrl_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="reset_sys"/>
 </GenRun>

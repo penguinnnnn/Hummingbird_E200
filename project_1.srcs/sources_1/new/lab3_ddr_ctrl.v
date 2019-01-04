@@ -78,11 +78,55 @@ input rst_n
 );
 
 
+// Lab3 Codes Here
+reg [44:0] cache [0:255];
+reg [31:0] data;
 
+wire read;
+wire exist;
+wire valid;
+wire hit;
+wire need_ddr_request;
+
+assign read = lsu2dtcm_icb_cmd_read;
+assign exist = (cache[lsu2dtcm_icb_cmd_addr[7:2]][44:33] == lsu2dtcm_icb_cmd_addr[19:8]);
+assign valid = cache[lsu2dtcm_icb_cmd_addr[7:2]][32];
+assign hit = exist &valid;
+assign need_ddr_request = lsu2dtcm_icb_cmd_valid & (!read | (read & !hit));
+
+always @(*)
+if (read) begin
+    if (hit) begin
+        data <= cache[lsu2dtcm_icb_cmd_addr[7:2]][31:0];
+    end
+    else begin
+        cache[lsu2dtcm_icb_cmd_addr[7:2]][31:0] <= lsu2dtcm_icb_rsp_rdata;
+        cache[lsu2dtcm_icb_cmd_addr[7:2]][44:33] <= lsu2dtcm_icb_cmd_addr[19:8];
+        cache[lsu2dtcm_icb_cmd_addr[7:2]][32] <= 1;
+        data <= lsu2dtcm_icb_rsp_rdata;
+    end
+end
+else begin
+    cache[lsu2dtcm_icb_cmd_addr[7:2]][44:33] <= lsu2dtcm_icb_cmd_addr[19:8];
+    cache[lsu2dtcm_icb_cmd_addr[7:2]][32] <= 1;
+    if (lsu2dtcm_icb_cmd_wmask[0])
+        cache[lsu2dtcm_icb_cmd_addr[7:2]][7:0] <=  lsu2dtcm_icb_cmd_wdata[7:0];
+    if (lsu2dtcm_icb_cmd_wmask[1])
+        cache[lsu2dtcm_icb_cmd_addr[7:2]][15:8] <=  lsu2dtcm_icb_cmd_wdata[15:8];
+    if (lsu2dtcm_icb_cmd_wmask[2])
+        cache[lsu2dtcm_icb_cmd_addr[7:2]][23:16] <=  lsu2dtcm_icb_cmd_wdata[23:16];
+    if (lsu2dtcm_icb_cmd_wmask[3])
+        cache[lsu2dtcm_icb_cmd_addr[7:2]][31:24] <=  lsu2dtcm_icb_cmd_wdata[31:24];
+end
+
+assign lsu2dtcm_icb_rsp_rdata = data;
+// End
 
 
 ddr_request u_ddr_request(.dtcm_active(dtcm_active),
-.lsu2dtcm_icb_cmd_valid(lsu2dtcm_icb_cmd_valid),
+// Lab3 Codes Here
+.lsu2dtcm_icb_cmd_valid(need_ddr_request),
+// End
 .lsu2dtcm_icb_cmd_ready(lsu2dtcm_icb_cmd_ready),
 .lsu2dtcm_icb_cmd_addr(lsu2dtcm_icb_cmd_addr),
 .lsu2dtcm_icb_cmd_read(lsu2dtcm_icb_cmd_read),
